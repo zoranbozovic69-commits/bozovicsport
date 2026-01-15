@@ -6,88 +6,88 @@
 
 @layer base {
   :root {
-    --background: 200 30% 98%;
-    --foreground: 210 50% 10%;
+    --background: 0 0% 100%;
+    --foreground: 215 35% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 50% 10%;
+    --card-foreground: 215 35% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 50% 10%;
+    --popover-foreground: 215 35% 15%;
 
-    --primary: 199 89% 48%;
+    --primary: 215 80% 25%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 38 92% 50%;
+    --secondary: 215 80% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 200 20% 94%;
-    --muted-foreground: 210 20% 40%;
+    --muted: 215 20% 95%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 160 84% 39%;
+    --accent: 145 65% 42%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 200 20% 88%;
-    --input: 200 20% 88%;
-    --ring: 199 89% 48%;
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 215 80% 25%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom colors */
-    --water-light: 199 89% 95%;
-    --water-medium: 199 89% 70%;
-    --water-dark: 199 89% 35%;
-    --gold: 38 92% 50%;
-    --gold-light: 38 92% 70%;
-    --success: 160 84% 39%;
-    --success-light: 160 84% 90%;
+    /* Custom colors - Navy theme */
+    --navy: 215 80% 25%;
+    --navy-light: 215 60% 35%;
+    --navy-dark: 215 90% 15%;
+    --slate: 215 15% 40%;
+    --success: 145 65% 42%;
+    --success-light: 145 65% 90%;
+    --danger: 0 70% 55%;
 
     /* Gradients */
-    --gradient-water: linear-gradient(135deg, hsl(199, 89%, 48%) 0%, hsl(199, 89%, 35%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(38, 92%, 50%) 0%, hsl(28, 92%, 45%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(199, 89%, 95%) 0%, hsl(0, 0%, 100%) 100%);
+    --gradient-navy: linear-gradient(135deg, hsl(215, 80%, 25%) 0%, hsl(215, 90%, 15%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(215, 80%, 25%) 0%, hsl(215, 90%, 18%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(145, 65%, 42%) 0%, hsl(145, 70%, 35%) 100%);
 
     /* Shadows */
-    --shadow-card: 0 4px 20px -4px hsl(199 89% 48% / 0.15);
-    --shadow-button: 0 4px 14px -2px hsl(199 89% 48% / 0.4);
-    --shadow-gold: 0 4px 14px -2px hsl(38 92% 50% / 0.4);
+    --shadow-card: 0 4px 24px -4px hsl(215 80% 25% / 0.12);
+    --shadow-button: 0 4px 14px -2px hsl(215 80% 25% / 0.35);
+    --shadow-success: 0 4px 14px -2px hsl(145 65% 42% / 0.35);
   }
 
   .dark {
-    --background: 210 50% 8%;
-    --foreground: 200 20% 95%;
+    --background: 215 35% 8%;
+    --foreground: 215 20% 95%;
 
-    --card: 210 50% 12%;
-    --card-foreground: 200 20% 95%;
+    --card: 215 35% 12%;
+    --card-foreground: 215 20% 95%;
 
-    --popover: 210 50% 12%;
-    --popover-foreground: 200 20% 95%;
+    --popover: 215 35% 12%;
+    --popover-foreground: 215 20% 95%;
 
-    --primary: 199 89% 55%;
-    --primary-foreground: 210 50% 8%;
+    --primary: 215 70% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 38 92% 55%;
-    --secondary-foreground: 210 50% 8%;
+    --secondary: 215 60% 60%;
+    --secondary-foreground: 215 35% 8%;
 
-    --muted: 210 30% 20%;
-    --muted-foreground: 200 20% 65%;
+    --muted: 215 25% 20%;
+    --muted-foreground: 215 15% 65%;
 
-    --accent: 160 84% 45%;
-    --accent-foreground: 210 50% 8%;
+    --accent: 145 65% 50%;
+    --accent-foreground: 215 35% 8%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 30% 25%;
-    --input: 210 30% 25%;
-    --ring: 199 89% 55%;
+    --border: 215 25% 25%;
+    --input: 215 25% 25%;
+    --ring: 215 70% 50%;
 
-    --water-light: 199 50% 20%;
-    --water-medium: 199 89% 45%;
-    --water-dark: 199 89% 55%;
+    --navy: 215 70% 50%;
+    --navy-light: 215 60% 60%;
+    --navy-dark: 215 35% 8%;
   }
 }
 
@@ -106,16 +106,16 @@
 }
 
 @layer utilities {
-  .gradient-water {
-    background: var(--gradient-water);
-  }
-
-  .gradient-gold {
-    background: var(--gradient-gold);
+  .gradient-navy {
+    background: var(--gradient-navy);
   }
 
   .gradient-hero {
     background: var(--gradient-hero);
+  }
+
+  .gradient-success {
+    background: var(--gradient-success);
   }
 
   .shadow-card {
@@ -126,12 +126,12 @@
     box-shadow: var(--shadow-button);
   }
 
-  .shadow-gold {
-    box-shadow: var(--shadow-gold);
+  .shadow-success {
+    box-shadow: var(--shadow-success);
   }
 
-  .text-gradient-water {
-    background: var(--gradient-water);
+  .text-gradient-navy {
+    background: var(--gradient-navy);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
