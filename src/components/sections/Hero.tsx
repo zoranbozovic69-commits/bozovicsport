@@ -1,106 +1,80 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Award, Users, Shield } from "lucide-react";
+import { GraduationCap, Award, Clock, FileCheck } from "lucide-react";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen gradient-hero overflow-hidden">
-      {/* Wave decoration */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 overflow-hidden">
-        <svg
-          viewBox="0 0 1440 120"
-          className="absolute bottom-0 w-full h-full text-background animate-wave"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="currentColor"
-            d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"
-          />
-        </svg>
-      </div>
-
-      <div className="container mx-auto px-4 pt-24 pb-40 relative z-10">
+      <div className="container mx-auto px-4 pt-28 pb-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-8 animate-pulse-glow">
-            <Award className="w-5 h-5" />
-            <span className="font-semibold text-sm">JEDINA individualna škola plivanja u Novom Sadu sa 100% uspešnosti!</span>
-          </div>
-
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-            <span className="text-gradient-water">Božović Sport:</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-primary-foreground">
+            PREDVIDLJIV USPEH.
             <br />
-            <span className="text-foreground">Tvoj put do vode, zdravlja i samopouzdanja!</span>
+            <span className="text-accent">GARANTOVANA KONTROLA.</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Oseti Slobodu! Pobedi Strah od Vode za Samo <strong className="text-foreground">10 Časova</strong>. 
-            <span className="text-primary font-bold"> GARANTOVANO!</span>
+          <p className="text-xl md:text-2xl text-primary-foreground/90 mb-10 max-w-3xl mx-auto">
+            Pobedi Strah od Vode za 10 Časova – <strong className="text-accent font-bold">GARANTOVANO!</strong>
           </p>
 
-          {/* New badge */}
-          <div className="bg-secondary text-secondary-foreground px-6 py-3 rounded-lg inline-block mb-10 shadow-gold">
-            <p className="font-bold text-sm md:text-base">
-              🆕 NOVO: Spremaš ispit iz plivanja? Potrebna ti je dozvola za čamac? Potrebna ti je kondiciona priprema?
-              <br className="hidden md:block" />
-              Božović Sport je tvoja stanica! Izdajemo Sertifikat o plivačkoj sposobnosti!
-            </p>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button 
-              size="lg" 
-              className="gradient-water text-lg px-8 py-6 shadow-button hover:scale-105 transition-transform"
-              asChild
-            >
-              <a href="tel:+381641494033">
-                <Phone className="w-5 h-5 mr-2" />
-                Pozovi: +381 64 149 4033
-              </a>
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-8 py-6 border-2 border-primary hover:bg-primary hover:text-primary-foreground transition-all"
-              asChild
-            >
-              <a href="#programi">Pogledaj Programe</a>
-            </Button>
-          </div>
+          {/* CTA Button */}
+          <Button 
+            size="lg" 
+            className="gradient-success text-lg px-10 py-7 shadow-success hover:scale-105 transition-transform font-bold mb-16"
+            asChild
+          >
+            <a href="#kontakt">
+              <FileCheck className="w-5 h-5 mr-2" />
+              ZAKAŽI DDK DIJAGNOSTIKU
+            </a>
+          </Button>
 
           {/* Trust badges */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-3 bg-card p-4 rounded-lg shadow-card">
-              <div className="w-12 h-12 rounded-full bg-success/10 flex items-center justify-center">
-                <Award className="w-6 h-6 text-success" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="flex items-center justify-center gap-4 bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/20">
+              <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center">
+                <Award className="w-7 h-7 text-accent" />
               </div>
               <div className="text-left">
-                <p className="font-bold text-foreground">100% Uspešnost</p>
-                <p className="text-sm text-muted-foreground">Preko 200 polaznika</p>
+                <p className="font-bold text-primary-foreground text-lg">100% Uspešnost</p>
+                <p className="text-sm text-primary-foreground/70">Nula neuspešnih slučajeva</p>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-3 bg-card p-4 rounded-lg shadow-card">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Users className="w-6 h-6 text-primary" />
+            <div className="flex items-center justify-center gap-4 bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/20">
+              <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center">
+                <Clock className="w-7 h-7 text-accent" />
               </div>
               <div className="text-left">
-                <p className="font-bold text-foreground">1 na 1 Pristup</p>
-                <p className="text-sm text-muted-foreground">Individualna pažnja</p>
+                <p className="font-bold text-primary-foreground text-lg">25 Godina iskustva</p>
+                <p className="text-sm text-primary-foreground/70">20.000+ Časova</p>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-3 bg-card p-4 rounded-lg shadow-card">
-              <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                <Shield className="w-6 h-6 text-secondary" />
+            <div className="flex items-center justify-center gap-4 bg-white/10 backdrop-blur-sm p-5 rounded-xl border border-white/20">
+              <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center">
+                <GraduationCap className="w-7 h-7 text-accent" />
               </div>
               <div className="text-left">
-                <p className="font-bold text-foreground">25 Godina Iskustva</p>
-                <p className="text-sm text-muted-foreground">Dokazana metodologija</p>
+                <p className="font-bold text-primary-foreground text-lg">MSc + Doktorand</p>
+                <p className="text-sm text-primary-foreground/70">Operativni trener vaterpola</p>
               </div>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Wave decoration */}
+      <div className="absolute bottom-0 left-0 right-0 h-24">
+        <svg
+          viewBox="0 0 1440 100"
+          className="absolute bottom-0 w-full h-full text-background"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="currentColor"
+            d="M0,50L60,45C120,40,240,30,360,35C480,40,600,60,720,65C840,70,960,60,1080,50C1200,40,1320,30,1380,25L1440,20L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z"
+          />
+        </svg>
       </div>
     </section>
   );
