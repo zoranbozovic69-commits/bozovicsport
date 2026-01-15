@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { z } from "zod";
 
 const locations = [
   {
@@ -19,48 +18,6 @@ const locations = [
     address: "Branka Bajića 11, Novi Sad",
   },
 ];
-
-// Input sanitization function - removes potentially dangerous characters
-const sanitizeInput = (input: string): string => {
-  return input
-    .trim()
-    // Remove control characters
-    .replace(/[\x00-\x1F\x7F]/g, '')
-    // Remove potentially dangerous Unicode characters (zero-width, direction overrides)
-    .replace(/[\u200B-\u200D\u2028\u2029\u202A-\u202E\uFEFF]/g, '')
-    // Normalize whitespace
-    .replace(/\s+/g, ' ');
-};
-
-// Zod schema for form validation
-const contactFormSchema = z.object({
-  ime: z
-    .string()
-    .min(2, "Ime mora imati najmanje 2 karaktera")
-    .max(100, "Ime može imati najviše 100 karaktera")
-    .regex(/^[\p{L}\s\-']+$/u, "Ime može sadržati samo slova, razmake i crtice")
-    .transform(sanitizeInput),
-  godiste: z
-    .string()
-    .regex(/^\d{4}$/, "Godište mora biti četvorocifreni broj")
-    .refine((val) => {
-      const year = parseInt(val, 10);
-      const currentYear = new Date().getFullYear();
-      return year >= 1940 && year <= currentYear;
-    }, "Godište mora biti između 1940 i tekuće godine"),
-  nivoStraha: z
-    .number()
-    .int()
-    .min(1, "Nivo straha mora biti između 1 i 10")
-    .max(10, "Nivo straha mora biti između 1 i 10"),
-  primarniCilj: z
-    .string()
-    .min(5, "Primarni cilj mora imati najmanje 5 karaktera")
-    .max(500, "Primarni cilj može imati najviše 500 karaktera")
-    .transform(sanitizeInput),
-});
-
-type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
@@ -74,37 +31,34 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Prepare data for validation
-    const dataToValidate = {
-      ime: formData.ime,
-      godiste: formData.godiste,
-      nivoStraha: formData.nivoStraha[0],
-      primarniCilj: formData.primarniCilj,
-    };
-
-    // Validate with zod schema
-    const validationResult = contactFormSchema.safeParse(dataToValidate);
-
-    if (!validationResult.success) {
-      const firstError = validationResult.error.errors[0];
+    // Basic validation
+    if (!formData.ime.trim() || !formData.godiste.trim() || !formData.primarniCilj.trim()) {
       toast({
-        title: "Greška u validaciji",
-        description: firstError.message,
+        title: "Greška",
+        description: "Molimo popunite sva polja.",
         variant: "destructive",
       });
       return;
     }
 
-    // Use sanitized and validated data
-    const validatedData = validationResult.data;
+    // Validate year format
+    const year = parseInt(formData.godiste);
+    if (isNaN(year) || year < 1940 || year > new Date().getFullYear()) {
+      toast({
+        title: "Greška",
+        description: "Molimo unesite validno godište.",
+        variant: "destructive",
+      });
+      return;
+    }
 
-    // Encode sanitized data for WhatsApp
+    // Encode data for WhatsApp
     const message = encodeURIComponent(
       `Zdravo! Zainteresovan/a sam za DDK dijagnostiku.\n\n` +
-      `Ime: ${validatedData.ime}\n` +
-      `Godište: ${validatedData.godiste}\n` +
-      `Nivo straha (1-10): ${validatedData.nivoStraha}\n` +
-      `Primarni cilj: ${validatedData.primarniCilj}`
+      `Ime: ${formData.ime.trim()}\n` +
+      `Godište: ${formData.godiste.trim()}\n` +
+      `Nivo straha (1-10): ${formData.nivoStraha[0]}\n` +
+      `Primarni cilj: ${formData.primarniCilj.trim()}`
     );
 
     window.open(`https://wa.me/381641494033?text=${message}`, '_blank');
