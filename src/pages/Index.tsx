@@ -6,6 +6,7 @@ import DDKMethodology from "@/components/sections/DDKMethodology";
 import TrainingPhases from "@/components/sections/TrainingPhases";
 import Pricing from "@/components/sections/Pricing";
 import ExpertProfile from "@/components/sections/ExpertProfile";
+import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
@@ -29,6 +30,7 @@ const Index = () => {
         <TrainingPhases />
         <Pricing />
         <ExpertProfile />
+        <FAQ />
         <Contact />
       </main>
       <Footer />

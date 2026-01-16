@@ -1,9 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Award, Clock, FileCheck } from "lucide-react";
+import treningPhoto from "@/assets/trening-bazen.jpg";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen gradient-hero overflow-hidden">
+      {/* Background image overlay */}
+      <div 
+        className="absolute inset-0 opacity-20 bg-cover bg-center"
+        style={{ backgroundImage: `url(${treningPhoto})` }}
+      />
+      
       <div className="container mx-auto px-4 pt-28 pb-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline */}
