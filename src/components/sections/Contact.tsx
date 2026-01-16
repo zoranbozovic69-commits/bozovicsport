@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,10 +12,12 @@ const locations = [
   {
     name: "Bazen Slana Bara",
     address: "Sentandrejski put 106, Novi Sad",
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.1234567890123!2d19.8397!3d45.2511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zU2VudGFuZHJlanNraSBwdXQgMTA2!5e0!3m2!1sen!2srs!4v1234567890",
   },
   {
     name: "No Limit Gym",
     address: "Branka Bajića 11, Novi Sad",
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.9876543210987!2d19.8321!3d45.2567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQnJhbmthIEJhamljaGEgMTE!5e0!3m2!1sen!2srs!4v1234567890",
   },
 ];
 
@@ -27,6 +29,14 @@ const Contact = () => {
     nivoStraha: [5],
     primarniCilj: "",
   });
+
+  // Get slider track color based on fear level
+  const sliderColor = useMemo(() => {
+    const level = formData.nivoStraha[0];
+    if (level <= 3) return "hsl(145, 65%, 42%)"; // Green
+    if (level <= 6) return "hsl(45, 93%, 47%)";  // Yellow/Orange
+    return "hsl(0, 70%, 55%)"; // Red
+  }, [formData.nivoStraha]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,13 +62,9 @@ const Contact = () => {
       return;
     }
 
-    // Encode data for WhatsApp
+    // Encode data for WhatsApp - exact format requested
     const message = encodeURIComponent(
-      `Zdravo! Zainteresovan/a sam za DDK dijagnostiku.\n\n` +
-      `Ime: ${formData.ime.trim()}\n` +
-      `Godište: ${formData.godiste.trim()}\n` +
-      `Nivo straha (1-10): ${formData.nivoStraha[0]}\n` +
-      `Primarni cilj: ${formData.primarniCilj.trim()}`
+      `Zdravo Zorane, želim DDK dijagnostiku. Ime: ${formData.ime.trim()}, Godište: ${formData.godiste.trim()}, Strah: ${formData.nivoStraha[0]}, Cilj: ${formData.primarniCilj.trim()}.`
     );
 
     window.open(`https://wa.me/381641494033?text=${message}`, '_blank');
@@ -72,7 +78,7 @@ const Contact = () => {
   return (
     <section className="py-20 gradient-hero" id="kontakt">
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-black mb-4 text-primary-foreground">
               Zakaži DDK Dijagnostiku
@@ -82,7 +88,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8">
             {/* Contact Form */}
             <Card className="border-0 shadow-card">
               <CardContent className="p-8">
@@ -113,19 +119,29 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <Label className="text-sm font-medium">Nivo straha od vode (1-10): {formData.nivoStraha[0]}</Label>
+                    <Label className="text-sm font-medium">
+                      Nivo straha od vode: <span className="font-bold text-lg" style={{ color: sliderColor }}>{formData.nivoStraha[0]}</span>
+                    </Label>
                     <div className="mt-3 px-1">
-                      <Slider
-                        value={formData.nivoStraha}
-                        onValueChange={(value) => setFormData({ ...formData, nivoStraha: value })}
-                        min={1}
-                        max={10}
-                        step={1}
-                        className="w-full"
-                      />
-                      <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                        <span>Nizak</span>
-                        <span>Visok</span>
+                      <div 
+                        className="relative"
+                        style={{
+                          '--slider-color': sliderColor
+                        } as React.CSSProperties}
+                      >
+                        <Slider
+                          value={formData.nivoStraha}
+                          onValueChange={(value) => setFormData({ ...formData, nivoStraha: value })}
+                          min={1}
+                          max={10}
+                          step={1}
+                          className="w-full fear-slider"
+                        />
+                      </div>
+                      <div className="flex justify-between text-xs mt-2">
+                        <span className="text-green-600 font-medium">1 - Nizak</span>
+                        <span className="text-yellow-600 font-medium">5 - Srednji</span>
+                        <span className="text-red-600 font-medium">10 - Visok</span>
                       </div>
                     </div>
                   </div>
@@ -144,7 +160,7 @@ const Contact = () => {
 
                   <Button 
                     type="submit" 
-                    className="w-full gradient-success shadow-success text-lg py-6 font-bold"
+                    className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white shadow-lg text-lg py-6 font-bold"
                   >
                     <Send className="w-5 h-5 mr-2" />
                     Pošalji putem WhatsApp
@@ -153,7 +169,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Contact Info */}
+            {/* Contact Info & Map */}
             <div className="space-y-6">
               <Card className="border-0 shadow-card">
                 <CardContent className="p-6">
@@ -191,7 +207,7 @@ const Contact = () => {
               <Card className="border-0 shadow-card">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-bold mb-4">Lokacije</h3>
-                  <div className="space-y-3">
+                  <div className="space-y-3 mb-4">
                     {locations.map((location, index) => (
                       <div key={index} className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg">
                         <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
@@ -203,6 +219,21 @@ const Contact = () => {
                         </div>
                       </div>
                     ))}
+                  </div>
+                  
+                  {/* Google Maps Embed */}
+                  <div className="rounded-lg overflow-hidden border border-border">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22439.10267584896!2d19.8204!3d45.2517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m3!3e0!4m0!4m0!5e0!3m2!1sen!2srs!4v1704067200000!5m2!1sen!2srs&markers=color:blue%7C45.2511,19.8397&markers=color:red%7C45.2567,19.8321"
+                      width="100%"
+                      height="200"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Lokacije Božović Sport"
+                      className="w-full"
+                    />
                   </div>
                 </CardContent>
               </Card>
