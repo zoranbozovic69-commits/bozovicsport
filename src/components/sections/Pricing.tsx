@@ -1,6 +1,7 @@
-import { Clock, FileCheck, Activity, Phone } from "lucide-react";
+import { Clock, FileCheck, Activity } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 const prices = [
   { 
@@ -64,9 +65,11 @@ const Pricing = () => {
                 }`}
               >
                 {item.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 gradient-navy text-primary-foreground px-4 py-1 rounded-full text-sm font-bold">
-                    Najpopularniji
-                  </div>
+                  <Badge 
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-navy text-primary-foreground px-4 py-1 text-sm font-bold"
+                  >
+                    NAJPOPULARNIJE
+                  </Badge>
                 )}
                 <CardHeader className="pb-2 pt-8">
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">

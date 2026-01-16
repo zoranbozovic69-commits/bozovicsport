@@ -1,4 +1,5 @@
-import { TrendingDown, TrendingUp, Target, CheckCircle } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { TrendingDown, TrendingUp, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   LineChart,
@@ -25,8 +26,40 @@ const chartData = [
 ];
 
 const DDKMethodology = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [animatedData, setAnimatedData] = useState<typeof chartData>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (isVisible) {
+      // Animate chart data point by point
+      chartData.forEach((point, index) => {
+        setTimeout(() => {
+          setAnimatedData((prev) => [...prev, point]);
+        }, index * 200);
+      });
+    }
+  }, [isVisible]);
+
   return (
-    <section className="py-20 bg-background" id="metodologija">
+    <section className="py-20 bg-background" id="metodologija" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
@@ -44,12 +77,13 @@ const DDKMethodology = () => {
               <h3 className="text-xl font-bold mb-6 text-center">Tvoj napredak u 10 sesija</h3>
               <div className="h-[300px] md:h-[350px]">
                 <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={chartData} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
+                  <LineChart data={animatedData} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                     <XAxis 
                       dataKey="session" 
                       label={{ value: 'Časovi', position: 'insideBottom', offset: -5 }}
                       stroke="hsl(var(--muted-foreground))"
+                      domain={[1, 10]}
                     />
                     <YAxis 
                       domain={[0, 10]}
@@ -71,6 +105,8 @@ const DDKMethodology = () => {
                       stroke="hsl(0, 70%, 55%)" 
                       strokeWidth={3}
                       dot={{ fill: 'hsl(0, 70%, 55%)', strokeWidth: 2, r: 4 }}
+                      isAnimationActive={true}
+                      animationDuration={500}
                     />
                     <Line 
                       type="monotone" 
@@ -79,6 +115,8 @@ const DDKMethodology = () => {
                       stroke="hsl(145, 65%, 42%)" 
                       strokeWidth={3}
                       dot={{ fill: 'hsl(145, 65%, 42%)', strokeWidth: 2, r: 4 }}
+                      isAnimationActive={true}
+                      animationDuration={500}
                     />
                   </LineChart>
                 </ResponsiveContainer>
