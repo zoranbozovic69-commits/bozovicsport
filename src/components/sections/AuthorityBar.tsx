@@ -1,21 +1,37 @@
+import logoPSS from "@/assets/logo-pss.png";
+import logoFSFV from "@/assets/logo-fsfv.png";
+import logoMinistarstvo from "@/assets/logo-ministarstvo.png";
+
 const AuthorityBar = () => {
   return (
-    <section className="py-6 bg-muted/30 border-b border-border">
+    <section className="py-8 bg-white border-b border-border">
       <div className="container mx-auto px-4">
+        <p className="text-center text-xs text-muted-foreground font-medium mb-6 uppercase tracking-wider">
+          Licencirano od
+        </p>
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-          <div className="flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
-            <div className="text-xs text-muted-foreground font-medium mb-1">Licencirano od</div>
-            <div className="font-bold text-foreground text-sm md:text-base">Plivački Savez Srbije</div>
+          <div className="flex flex-col items-center opacity-80 hover:opacity-100 transition-opacity">
+            <img 
+              src={logoPSS} 
+              alt="Plivački Savez Srbije" 
+              className="h-12 md:h-16 w-auto object-contain"
+            />
           </div>
-          <div className="h-8 w-px bg-border hidden md:block" />
-          <div className="flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
-            <div className="text-xs text-muted-foreground font-medium mb-1">Diploma</div>
-            <div className="font-bold text-foreground text-sm md:text-base">FSFV</div>
+          <div className="h-12 w-px bg-border hidden md:block" />
+          <div className="flex flex-col items-center opacity-80 hover:opacity-100 transition-opacity">
+            <img 
+              src={logoFSFV} 
+              alt="Fakultet sporta i fizičkog vaspitanja" 
+              className="h-12 md:h-16 w-auto object-contain"
+            />
           </div>
-          <div className="h-8 w-px bg-border hidden md:block" />
-          <div className="flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
-            <div className="text-xs text-muted-foreground font-medium mb-1">Dozvola</div>
-            <div className="font-bold text-foreground text-sm md:text-base">Ministarstvo Prosvete RS</div>
+          <div className="h-12 w-px bg-border hidden md:block" />
+          <div className="flex flex-col items-center opacity-80 hover:opacity-100 transition-opacity">
+            <img 
+              src={logoMinistarstvo} 
+              alt="Ministarstvo Prosvete RS" 
+              className="h-12 md:h-16 w-auto object-contain"
+            />
           </div>
         </div>
       </div>
