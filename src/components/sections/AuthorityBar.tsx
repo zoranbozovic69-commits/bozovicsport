@@ -28,44 +28,26 @@ const AuthorityBar = () => {
           Licencirano od
         </p>
         
-        {/* Mobile: 2 rows layout (2 top, 1 bottom centered) */}
-        <div className="flex flex-col gap-4 md:hidden">
-          {/* First row - 2 logos */}
-          <div className="flex justify-center gap-4">
-            {authorities.slice(0, 2).map((authority, index) => (
-              <div 
-                key={index} 
-                className="flex flex-col items-center text-center p-3 bg-muted/30 rounded-xl flex-1 max-w-[160px]"
-              >
-                <div className="w-full min-h-[70px] rounded-lg bg-white shadow-sm flex items-center justify-center p-2 mb-2">
-                  <img 
-                    src={authority.logo} 
-                    alt={authority.name} 
-                    className="w-auto h-[60px] object-contain"
-                  />
-                </div>
-                <p className="font-semibold text-foreground text-xs">{authority.shortName}</p>
-                <p className="text-[10px] text-muted-foreground leading-tight">{authority.name}</p>
-              </div>
-            ))}
-          </div>
-          
-          {/* Second row - 1 logo centered */}
-          <div className="flex justify-center">
+        {/* Mobile: Vertical stack layout */}
+        <div className="flex flex-col gap-5 md:hidden">
+          {authorities.map((authority, index) => (
             <div 
-              className="flex flex-col items-center text-center p-3 bg-muted/30 rounded-xl max-w-[160px]"
+              key={index} 
+              className="flex items-center gap-4 p-4 bg-muted/30 rounded-xl"
             >
-              <div className="w-full min-h-[70px] rounded-lg bg-white shadow-sm flex items-center justify-center p-2 mb-2">
+              <div className="w-24 h-24 shrink-0 rounded-lg bg-white shadow-sm flex items-center justify-center p-2">
                 <img 
-                  src={authorities[2].logo} 
-                  alt={authorities[2].name} 
-                  className="w-auto h-[60px] object-contain"
+                  src={authority.logo} 
+                  alt={authority.name} 
+                  className="w-full h-full object-contain"
                 />
               </div>
-              <p className="font-semibold text-foreground text-xs">{authorities[2].shortName}</p>
-              <p className="text-[10px] text-muted-foreground leading-tight">{authorities[2].name}</p>
+              <div>
+                <p className="font-bold text-foreground text-base">{authority.shortName}</p>
+                <p className="text-sm text-muted-foreground leading-snug">{authority.name}</p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
 
         {/* Desktop: Horizontal layout */}

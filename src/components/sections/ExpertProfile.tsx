@@ -78,12 +78,11 @@ const ExpertProfile = () => {
                       Licenca broj 0333 - Plivački Savez Srbije
                     </p>
                   </div>
-                  <div className="p-4 md:p-6">
+                  <div className="p-3 md:p-6">
                     <div 
-                      className="relative rounded-xl overflow-hidden border-4 border-primary/20 shadow-lg bg-white cursor-pointer group"
+                      className="relative rounded-xl overflow-hidden border-[3px] border-slate-700 shadow-xl bg-white cursor-pointer group"
                       onClick={() => setIsLicenseOpen(true)}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                         <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 rounded-full p-3 shadow-lg">
                           <ZoomIn className="w-6 h-6 text-primary" />
