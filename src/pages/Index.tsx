@@ -4,6 +4,7 @@ import Hero from "@/components/sections/Hero";
 import AuthorityBar from "@/components/sections/AuthorityBar";
 import DDKMethodology from "@/components/sections/DDKMethodology";
 import TrainingPhases from "@/components/sections/TrainingPhases";
+import WaterPoloCheck from "@/components/sections/WaterPoloCheck";
 import Pricing from "@/components/sections/Pricing";
 import ExpertProfile from "@/components/sections/ExpertProfile";
 import FAQ from "@/components/sections/FAQ";
@@ -20,7 +21,7 @@ const Index = () => {
           name="description" 
           content="Naučite da plivate bez straha uz DDK metod Zorana Božovića, MSc. Individualna obuka u Novom Sadu (Slana Bara) sa 100% uspešnosti. Zakažite dijagnostiku odmah!" 
         />
-        <meta name="keywords" content="Škola plivanja Novi Sad, Strah od vode, Individualni časovi plivanja, Kineziterapija Novi Sad, Sertifikat za čamac, DDK metodologija" />
+        <meta name="keywords" content="Škola plivanja Novi Sad, Strah od vode, Individualni časovi plivanja, Kineziterapija Novi Sad, Sertifikat za čamac, DDK metodologija, vaterpolo Novi Sad" />
       </Helmet>
       <Navbar />
       <main>
@@ -28,6 +29,7 @@ const Index = () => {
         <AuthorityBar />
         <DDKMethodology />
         <TrainingPhases />
+        <WaterPoloCheck />
         <Pricing />
         <ExpertProfile />
         <FAQ />

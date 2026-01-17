@@ -37,6 +37,12 @@ const additionalServices = [
     price: "Po dogovoru",
     icon: Activity,
   },
+  {
+    title: "Ispitivanje vaterpolista",
+    description: "Provera kretanja i tehnika",
+    price: "Po dogovoru",
+    icon: Activity,
+  },
 ];
 
 const Pricing = () => {
