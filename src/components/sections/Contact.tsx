@@ -26,7 +26,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     ime: "",
     godiste: "",
-    nivoStraha: [5],
+    nivoStraha: [7],
     primarniCilj: "",
   });
 

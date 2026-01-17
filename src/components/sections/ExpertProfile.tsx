@@ -74,12 +74,19 @@ const ExpertProfile = () => {
                     Licenca broj 0333 - Plivački Savez Srbije
                   </p>
                 </div>
-                <div className="p-4">
-                  <img 
-                    src={licencaPhoto} 
-                    alt="Licenca Plivačkog Saveza Srbije - Zoran Božović" 
-                    className="w-full h-auto rounded-lg shadow-md"
-                  />
+                <div className="p-6">
+                  <div className="relative rounded-xl overflow-hidden border-4 border-primary/20 shadow-lg bg-white">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
+                    <img 
+                      src={licencaPhoto} 
+                      alt="Licenca Plivačkog Saveza Srbije - Zoran Božović" 
+                      className="w-full h-auto object-contain"
+                      style={{ aspectRatio: '3/4', objectFit: 'cover', objectPosition: 'center' }}
+                    />
+                  </div>
+                  <p className="text-center text-xs text-muted-foreground mt-3">
+                    Zvanični dokument - Plivački Savez Srbije
+                  </p>
                 </div>
               </CardContent>
             </Card>
