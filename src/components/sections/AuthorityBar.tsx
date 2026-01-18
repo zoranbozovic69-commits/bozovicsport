@@ -5,18 +5,15 @@ import logoMinistarstvo from "@/assets/logo-ministarstvo.png";
 const authorities = [
   {
     logo: logoPSS,
-    name: "Plivački Savez Srbije",
-    shortName: "PSS"
+    fullName: "Plivački Savez Srbije"
   },
   {
     logo: logoFSFV,
-    name: "Fakultet sporta i fizičkog vaspitanja",
-    shortName: "FSFV"
+    fullName: "Fakultet sporta i fizičkog vaspitanja"
   },
   {
     logo: logoMinistarstvo,
-    name: "Ministarstvo Prosvete RS",
-    shortName: "Ministarstvo"
+    fullName: "Ministarstvo Prosvete RS"
   }
 ];
 
@@ -28,22 +25,25 @@ const AuthorityBar = () => {
           Licencirano od strane
         </p>
         
-        {/* Mobile: Large vertical stack - each logo takes ~50% screen width */}
-        <div className="flex flex-col items-center gap-6 md:hidden">
+        {/* Mobile: Vertical stack - crest only with text name below */}
+        <div className="flex flex-col items-center gap-8 md:hidden">
           {authorities.map((authority, index) => (
             <div 
               key={index} 
-              className="flex flex-col items-center text-center w-full max-w-[280px] p-5 bg-muted/20 rounded-2xl border border-border/50"
+              className="flex flex-col items-center text-center w-full"
             >
-              <div className="w-40 h-40 rounded-xl bg-white shadow-md flex items-center justify-center p-3 mb-4">
+              {/* Crest/Logo container - large and prominent */}
+              <div className="w-32 h-32 rounded-full bg-white shadow-lg flex items-center justify-center p-2 mb-4 border-2 border-muted/30">
                 <img 
                   src={authority.logo} 
-                  alt={authority.name} 
+                  alt={authority.fullName} 
                   className="w-full h-full object-contain"
                 />
               </div>
-              <p className="font-bold text-foreground text-lg">{authority.shortName}</p>
-              <p className="text-sm text-muted-foreground mt-1">{authority.name}</p>
+              {/* Institution name as text */}
+              <p className="font-semibold text-foreground text-base leading-tight max-w-[200px]">
+                {authority.fullName}
+              </p>
             </div>
           ))}
         </div>
@@ -54,15 +54,18 @@ const AuthorityBar = () => {
             <div key={index} className="flex items-center gap-4">
               {index > 0 && <div className="h-20 w-px bg-border -ml-8 mr-8" />}
               <div className="flex flex-col items-center text-center opacity-90 hover:opacity-100 transition-opacity">
-                <div className="w-24 h-24 rounded-xl bg-muted/30 flex items-center justify-center p-3 mb-3">
+                {/* Crest container */}
+                <div className="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center p-2 mb-3 border border-muted/30">
                   <img 
                     src={authority.logo} 
-                    alt={authority.name} 
+                    alt={authority.fullName} 
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <p className="font-bold text-foreground text-base">{authority.shortName}</p>
-                <p className="text-sm text-muted-foreground max-w-[160px]">{authority.name}</p>
+                {/* Institution name as text */}
+                <p className="font-semibold text-foreground text-sm max-w-[160px] leading-tight">
+                  {authority.fullName}
+                </p>
               </div>
             </div>
           ))}
