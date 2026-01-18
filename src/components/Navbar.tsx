@@ -39,7 +39,7 @@ const Navbar = () => {
             <img 
               src={logoImage} 
               alt="Božović Sport" 
-              className={`h-12 w-auto rounded-lg transition-all ${scrolled ? "brightness-100" : "brightness-110"}`}
+              className={`h-14 md:h-16 w-auto rounded-lg transition-all ${scrolled ? "brightness-100" : "brightness-110"}`}
             />
           </a>
 
