@@ -1,23 +1,7 @@
-import logoPSS from "@/assets/logo-pss.png";
-import logoFSFV from "@/assets/logo-fsfv-cropped.png";
-import logoMinistarstvo from "@/assets/logo-ministarstvo.png";
-
 const authorities = [
-  {
-    logo: logoPSS,
-    fullName: "Plivački Savez Srbije",
-    bgClass: "bg-[#1a1a2e]" // Dark background to match the screenshot
-  },
-  {
-    logo: logoFSFV,
-    fullName: "Fakultet sporta i fizičkog vaspitanja",
-    bgClass: "bg-white" // Clean white background
-  },
-  {
-    logo: logoMinistarstvo,
-    fullName: "Ministarstvo Prosvete RS",
-    bgClass: "bg-[#1a1a2e]" // Dark background to match the screenshot
-  }
+  { fullName: "Plivački Savez Srbije" },
+  { fullName: "Fakultet sporta i fizičkog vaspitanja" },
+  { fullName: "Ministarstvo Prosvete RS" }
 ];
 
 const AuthorityBar = () => {
@@ -28,48 +12,28 @@ const AuthorityBar = () => {
           Licencirano od strane
         </p>
         
-        {/* Mobile: Vertical stack - rectangular cards with full logos */}
-        <div className="flex flex-col items-center gap-6 md:hidden">
+        {/* Mobile: Vertical stack - text only */}
+        <div className="flex flex-col items-center gap-4 md:hidden">
           {authorities.map((authority, index) => (
             <div 
               key={index} 
-              className="flex flex-col items-center text-center w-full max-w-[320px]"
+              className="w-full max-w-[320px] py-4 px-6 bg-primary/5 rounded-lg border border-primary/20"
             >
-              {/* Logo container - rectangular to fit horizontal logos */}
-              <div className={`w-full h-24 rounded-xl ${authority.bgClass} shadow-lg flex items-center justify-center p-4 mb-3 border border-muted/20 overflow-hidden`}>
-                <img 
-                  src={authority.logo} 
-                  alt={authority.fullName} 
-                  className="max-w-full max-h-full object-contain"
-                />
-              </div>
-              {/* Institution name as text */}
-              <p className="font-semibold text-foreground text-base leading-tight">
+              <p className="font-bold text-primary text-lg text-center leading-tight">
                 {authority.fullName}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Desktop: Horizontal layout */}
-        <div className="hidden md:flex items-start justify-center gap-12">
+        {/* Desktop: Horizontal layout - text only */}
+        <div className="hidden md:flex items-center justify-center gap-8">
           {authorities.map((authority, index) => (
-            <div key={index} className="flex items-center gap-4">
-              {index > 0 && <div className="h-20 w-px bg-border -ml-6 mr-6" />}
-              <div className="flex flex-col items-center text-center opacity-90 hover:opacity-100 transition-opacity">
-                {/* Logo container - rectangular */}
-                <div className={`w-48 h-20 rounded-lg ${authority.bgClass} shadow-md flex items-center justify-center p-3 mb-3 border border-muted/20 overflow-hidden`}>
-                  <img 
-                    src={authority.logo} 
-                    alt={authority.fullName} 
-                    className="max-w-full max-h-full object-contain"
-                  />
-                </div>
-                {/* Institution name as text */}
-                <p className="font-semibold text-foreground text-sm max-w-[180px] leading-tight">
-                  {authority.fullName}
-                </p>
-              </div>
+            <div key={index} className="flex items-center gap-8">
+              {index > 0 && <div className="h-8 w-px bg-border" />}
+              <p className="font-bold text-primary text-lg hover:text-primary/80 transition-colors">
+                {authority.fullName}
+              </p>
             </div>
           ))}
         </div>
