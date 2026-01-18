@@ -22,49 +22,47 @@ const authorities = [
 
 const AuthorityBar = () => {
   return (
-    <section className="py-8 md:py-10 bg-white border-b border-border">
+    <section className="py-10 md:py-12 bg-white border-b border-border">
       <div className="container mx-auto px-4">
-        <p className="text-center text-xs text-muted-foreground font-medium mb-6 uppercase tracking-wider">
-          Licencirano od
+        <p className="text-center text-sm text-muted-foreground font-semibold mb-8 uppercase tracking-wider">
+          Licencirano od strane
         </p>
         
-        {/* Mobile: Vertical stack layout */}
-        <div className="flex flex-col gap-5 md:hidden">
+        {/* Mobile: Large vertical stack - each logo takes ~50% screen width */}
+        <div className="flex flex-col items-center gap-6 md:hidden">
           {authorities.map((authority, index) => (
             <div 
               key={index} 
-              className="flex items-center gap-4 p-4 bg-muted/30 rounded-xl"
+              className="flex flex-col items-center text-center w-full max-w-[280px] p-5 bg-muted/20 rounded-2xl border border-border/50"
             >
-              <div className="w-24 h-24 shrink-0 rounded-lg bg-white shadow-sm flex items-center justify-center p-2">
+              <div className="w-40 h-40 rounded-xl bg-white shadow-md flex items-center justify-center p-3 mb-4">
                 <img 
                   src={authority.logo} 
                   alt={authority.name} 
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div>
-                <p className="font-bold text-foreground text-base">{authority.shortName}</p>
-                <p className="text-sm text-muted-foreground leading-snug">{authority.name}</p>
-              </div>
+              <p className="font-bold text-foreground text-lg">{authority.shortName}</p>
+              <p className="text-sm text-muted-foreground mt-1">{authority.name}</p>
             </div>
           ))}
         </div>
 
         {/* Desktop: Horizontal layout */}
-        <div className="hidden md:flex items-center justify-center gap-12">
+        <div className="hidden md:flex items-center justify-center gap-16">
           {authorities.map((authority, index) => (
             <div key={index} className="flex items-center gap-4">
-              {index > 0 && <div className="h-16 w-px bg-border -ml-6 mr-6" />}
+              {index > 0 && <div className="h-20 w-px bg-border -ml-8 mr-8" />}
               <div className="flex flex-col items-center text-center opacity-90 hover:opacity-100 transition-opacity">
-                <div className="w-20 h-20 rounded-xl bg-muted/30 flex items-center justify-center p-3 mb-2">
+                <div className="w-24 h-24 rounded-xl bg-muted/30 flex items-center justify-center p-3 mb-3">
                   <img 
                     src={authority.logo} 
                     alt={authority.name} 
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <p className="font-semibold text-foreground text-sm">{authority.shortName}</p>
-                <p className="text-xs text-muted-foreground max-w-[140px]">{authority.name}</p>
+                <p className="font-bold text-foreground text-base">{authority.shortName}</p>
+                <p className="text-sm text-muted-foreground max-w-[160px]">{authority.name}</p>
               </div>
             </div>
           ))}
