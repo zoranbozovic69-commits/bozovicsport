@@ -5,15 +5,15 @@ import logoMinistarstvo from "@/assets/logo-ministarstvo-new.png";
 const authorities = [
   { 
     logo: logoPSS, 
-    fullName: "Plivački savez Srbije" 
+    fullName: "Ministarstvo prosvete Republike Srbije" 
   },
   { 
     logo: logoFSFV, 
-    fullName: "Fakultet sporta i fizičkog vaspitanja" 
+    fullName: "Plivački savez Srbije" 
   },
   { 
     logo: logoMinistarstvo, 
-    fullName: "Ministarstvo prosvete Republike Srbije" 
+    fullName: "Fakultet sporta i fizičkog vaspitanja Novi Sad" 
   }
 ];
 
