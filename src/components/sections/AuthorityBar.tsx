@@ -1,37 +1,70 @@
+import logoPSS from "@/assets/logo-pss-new.png";
+import logoFSFV from "@/assets/logo-fsfv-new.png";
+import logoMinistarstvo from "@/assets/logo-ministarstvo-new.png";
+
 const authorities = [
-  { fullName: "Plivački Savez Srbije" },
-  { fullName: "Fakultet sporta i fizičkog vaspitanja" },
-  { fullName: "Ministarstvo Prosvete RS" }
+  { 
+    logo: logoPSS, 
+    fullName: "Plivački savez Srbije" 
+  },
+  { 
+    logo: logoFSFV, 
+    fullName: "Fakultet sporta i fizičkog vaspitanja" 
+  },
+  { 
+    logo: logoMinistarstvo, 
+    fullName: "Ministarstvo prosvete Republike Srbije" 
+  }
 ];
 
 const AuthorityBar = () => {
   return (
-    <section className="py-10 md:py-12 bg-white border-b border-border">
+    <section className="py-12 md:py-16 bg-white border-b border-border">
       <div className="container mx-auto px-4">
-        <p className="text-center text-sm text-muted-foreground font-semibold mb-8 uppercase tracking-wider">
+        <p className="text-center text-sm text-muted-foreground font-semibold mb-10 uppercase tracking-wider">
           Licencirano od strane
         </p>
         
-        {/* Mobile: Vertical stack - text only */}
-        <div className="flex flex-col items-center gap-4 md:hidden">
+        {/* Mobile: Vertical stack with large logos */}
+        <div className="flex flex-col items-center gap-10 md:hidden">
           {authorities.map((authority, index) => (
             <div 
               key={index} 
-              className="w-full max-w-[320px] py-4 px-6 bg-primary/5 rounded-lg border border-primary/20"
+              className="flex flex-col items-center text-center w-full"
             >
-              <p className="font-bold text-primary text-lg text-center leading-tight">
+              {/* Large rectangular logo */}
+              <div className="w-[60%] min-w-[180px] max-w-[280px] mb-4">
+                <img 
+                  src={authority.logo} 
+                  alt={authority.fullName} 
+                  className="w-full h-auto object-contain rounded-lg shadow-md"
+                />
+              </div>
+              {/* Institution name - bold 18px */}
+              <p className="font-bold text-primary text-lg leading-tight max-w-[280px]">
                 {authority.fullName}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Desktop: Horizontal layout - text only */}
-        <div className="hidden md:flex items-center justify-center gap-8">
+        {/* Desktop: Horizontal layout with large logos */}
+        <div className="hidden md:flex items-start justify-center gap-16">
           {authorities.map((authority, index) => (
-            <div key={index} className="flex items-center gap-8">
-              {index > 0 && <div className="h-8 w-px bg-border" />}
-              <p className="font-bold text-primary text-lg hover:text-primary/80 transition-colors">
+            <div 
+              key={index} 
+              className="flex flex-col items-center text-center max-w-[220px]"
+            >
+              {/* Large rectangular logo */}
+              <div className="w-[180px] h-[120px] mb-4 flex items-center justify-center">
+                <img 
+                  src={authority.logo} 
+                  alt={authority.fullName} 
+                  className="max-w-full max-h-full object-contain rounded-lg shadow-md"
+                />
+              </div>
+              {/* Institution name - bold */}
+              <p className="font-bold text-primary text-base leading-tight">
                 {authority.fullName}
               </p>
             </div>
