@@ -69,7 +69,7 @@ const WaterPoloCheck = () => {
 
               <div className="text-center">
                 <p className="text-lg font-bold text-muted-foreground mb-4">
-                  Cena: <span className="text-primary text-2xl">Po dogovoru</span>
+                  Cena: <span className="text-primary text-2xl">4.000 RSD</span>
                 </p>
                 <Button 
                   size="lg" 
