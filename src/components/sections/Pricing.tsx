@@ -34,13 +34,13 @@ const additionalServices = [
   {
     title: "Kineziterapija",
     description: "Kifoza, skolioza, bolna stanja",
-    price: "Po dogovoru",
+    price: "4.000 RSD",
     icon: Activity,
   },
   {
     title: "Ispitivanje vaterpolista",
     description: "Provera kretanja i tehnika",
-    price: "Po dogovoru",
+    price: "4.000 RSD",
     icon: Activity,
   },
 ];
