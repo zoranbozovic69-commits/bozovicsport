@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import DDKAnalysisCard from "@/components/DDKAnalysisCard";
+
 
 const locations = [
   {
@@ -144,7 +146,11 @@ const Contact = () => {
                         <span className="text-red-600 font-medium">10 - Visok</span>
                       </div>
                     </div>
+                    <div className="mt-4">
+                      <DDKAnalysisCard selectedLevel={formData.nivoStraha[0]} />
+                    </div>
                   </div>
+
 
                   <div>
                     <Label htmlFor="cilj" className="text-sm font-medium">Primarni cilj *</Label>
