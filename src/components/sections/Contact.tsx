@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import DDKAnalysisCard from "@/components/DDKAnalysisCard";
+
 
 const locations = [
   {
@@ -63,9 +65,11 @@ const Contact = () => {
     }
 
     // Encode data for WhatsApp - exact format requested
+    const level = formData.nivoStraha[0];
     const message = encodeURIComponent(
-      `Zdravo Zorane, želim DDK dijagnostiku. Ime: ${formData.ime.trim()}, Godište: ${formData.godiste.trim()}, Strah: ${formData.nivoStraha[0]}, Cilj: ${formData.primarniCilj.trim()}.`
+      `Zdravo Zorane, želim DDK dijagnostiku. Ime: ${formData.ime.trim()}, Godište: ${formData.godiste.trim()}, Nivo straha od vode: ${level}/10, Cilj: ${formData.primarniCilj.trim()}.`
     );
+
 
     window.open(`https://wa.me/381641494033?text=${message}`, '_blank');
 
@@ -144,7 +148,11 @@ const Contact = () => {
                         <span className="text-red-600 font-medium">10 - Visok</span>
                       </div>
                     </div>
+                    <div className="mt-4">
+                      <DDKAnalysisCard selectedLevel={formData.nivoStraha[0]} />
+                    </div>
                   </div>
+
 
                   <div>
                     <Label htmlFor="cilj" className="text-sm font-medium">Primarni cilj *</Label>

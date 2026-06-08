@@ -4,7 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { HelpCircle } from "lucide-react";
+import { HelpCircle, Activity } from "lucide-react";
+import DDKFearScale from "@/components/DDKFearScale";
+
 
 const faqItems = [
   {
@@ -42,7 +44,20 @@ const FAQ = () => {
             </p>
           </div>
 
+          <div className="mb-12 bg-background rounded-2xl border border-border shadow-card p-6 md:p-8">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <Activity className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-black">
+                Interaktivna DDK skala straha
+              </h3>
+            </div>
+            <DDKFearScale />
+          </div>
+
           <Accordion type="single" collapsible className="space-y-4">
+
             {faqItems.map((item, index) => (
               <AccordionItem 
                 key={index} 
