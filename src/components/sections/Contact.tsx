@@ -65,9 +65,11 @@ const Contact = () => {
     }
 
     // Encode data for WhatsApp - exact format requested
+    const level = formData.nivoStraha[0];
     const message = encodeURIComponent(
-      `Zdravo Zorane, želim DDK dijagnostiku. Ime: ${formData.ime.trim()}, Godište: ${formData.godiste.trim()}, Strah: ${formData.nivoStraha[0]}, Cilj: ${formData.primarniCilj.trim()}.`
+      `Zdravo Zorane, želim DDK dijagnostiku. Ime: ${formData.ime.trim()}, Godište: ${formData.godiste.trim()}, Nivo straha od vode: ${level}/10, Cilj: ${formData.primarniCilj.trim()}.`
     );
+
 
     window.open(`https://wa.me/381641494033?text=${message}`, '_blank');
 
