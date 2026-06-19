@@ -5,6 +5,7 @@ import AuthorityBar from "@/components/sections/AuthorityBar";
 import DDKMethodology from "@/components/sections/DDKMethodology";
 import TrainingPhases from "@/components/sections/TrainingPhases";
 import WaterPoloCheck from "@/components/sections/WaterPoloCheck";
+import UniversityPrep from "@/components/sections/UniversityPrep";
 import Pricing from "@/components/sections/Pricing";
 import ExpertProfile from "@/components/sections/ExpertProfile";
 import FAQ from "@/components/sections/FAQ";
@@ -30,6 +31,7 @@ const Index = () => {
         <DDKMethodology />
         <TrainingPhases />
         <WaterPoloCheck />
+        <UniversityPrep />
         <Pricing />
         <ExpertProfile />
         <FAQ />
