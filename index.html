@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="sr" dir="ltr" translate="no">
   <head>
+    <script>
+      (function(){
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.pathname) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Language" content="sr-RS" />
     <meta name="google" content="notranslate" />
