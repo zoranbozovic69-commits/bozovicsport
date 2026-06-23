@@ -14,15 +14,13 @@ const Hero = () => {
       <div className="container mx-auto px-4 pt-28 pb-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-primary-foreground">
-            PREDVIDLJIV USPEH.
-            <br />
-            <span className="text-accent">GARANTOVANA KONTROLA.</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight text-primary-foreground">
+            PREDVIDLJIV USPEH. <span className="text-accent">GARANTOVANA KONTROLA.</span> Pobedi strah od vode za 10x60min – <span className="text-accent">GARANTOVANO!</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-primary-foreground/90 mb-10 max-w-3xl mx-auto">
-            Pobedi Strah od Vode za 10 Časova – <strong className="text-accent font-bold">GARANTOVANO!</strong>
+          <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-3xl mx-auto italic">
+            Stručni nadzor: Dijagnostika, motorika, analiza napretka.
           </p>
 
           {/* CTA Button */}
