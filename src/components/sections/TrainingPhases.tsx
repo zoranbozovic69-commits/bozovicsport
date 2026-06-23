@@ -1,5 +1,11 @@
-import { CheckCircle, Waves, Shield, Zap } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle, Waves, Shield, Zap, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const phases = [
   {
@@ -9,7 +15,6 @@ const phases = [
     icon: Waves,
     content: ["Plutanje", "Disanje", "Klizanje", "Skok na noge"],
     outcome: "Eliminacija straha i bezbedan ulazak u vodu",
-    bgColor: "bg-primary/5",
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
   },
@@ -20,7 +25,6 @@ const phases = [
     icon: Shield,
     content: ["Održavanje na vodi (4+ minuta)", "Rad u dubini"],
     outcome: "Potpuna kontrola i sigurnost u dubokoj vodi",
-    bgColor: "bg-accent/5",
     iconBg: "bg-accent/10",
     iconColor: "text-accent",
   },
@@ -31,7 +35,6 @@ const phases = [
     icon: Zap,
     content: ["Kretanje kroz vodu", "Kraul", "Prsno", "Leđno", "Delfin"],
     outcome: "Majstorstvo svih stilova plivanja",
-    bgColor: "bg-secondary/5",
     iconBg: "bg-secondary/10",
     iconColor: "text-secondary",
   },
@@ -39,39 +42,44 @@ const phases = [
 
 const TrainingPhases = () => {
   return (
-    <section className="py-20 bg-muted/30" id="faze">
+    <section className="py-16 md:py-20 bg-muted/30" id="faze">
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
             <h2 className="text-3xl md:text-5xl font-black mb-4">
               Faze <span className="text-primary">Obuke</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Strukturiran put od straha do majstorstva
+            <p className="text-base md:text-lg text-muted-foreground">
+              Strukturiran put od straha do majstorstva — kliknite na fazu za detalje
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <Accordion type="single" collapsible className="space-y-4">
             {phases.map((phase, index) => (
-              <Card key={index} className={`border-0 shadow-card ${phase.bgColor} relative overflow-hidden`}>
-                <div className="absolute top-0 right-0 w-24 h-24 opacity-5">
-                  <phase.icon className="w-full h-full" />
-                </div>
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-4 mb-2">
-                    <div className={`w-12 h-12 rounded-xl ${phase.iconBg} flex items-center justify-center`}>
-                      <phase.icon className={`w-6 h-6 ${phase.iconColor}`} />
+              <AccordionItem
+                key={index}
+                value={`phase-${phase.number}`}
+                className="border-0 shadow-card rounded-xl bg-background overflow-hidden"
+              >
+                <AccordionTrigger className="px-4 md:px-6 py-4 hover:no-underline">
+                  <div className="flex items-center gap-3 md:gap-4 text-left">
+                    <div className={`w-11 h-11 md:w-12 md:h-12 rounded-xl ${phase.iconBg} flex items-center justify-center shrink-0`}>
+                      <phase.icon className={`w-5 h-5 md:w-6 md:h-6 ${phase.iconColor}`} />
                     </div>
-                    <div className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center font-black text-lg">
+                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-foreground text-background flex items-center justify-center font-black shrink-0">
                       {phase.number}
                     </div>
+                    <div className="min-w-0">
+                      <p className="font-bold text-sm md:text-base leading-tight">
+                        FAZA {phase.number}: {phase.title}
+                      </p>
+                      <p className="text-xs md:text-sm text-muted-foreground font-normal">
+                        {phase.subtitle}
+                      </p>
+                    </div>
                   </div>
-                  <CardTitle className="text-xl">
-                    FAZA {phase.number}: {phase.title}
-                  </CardTitle>
-                  <p className="text-sm text-muted-foreground">{phase.subtitle}</p>
-                </CardHeader>
-                <CardContent>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 md:px-6 pb-6">
                   <div className="mb-4">
                     <p className="text-sm font-semibold text-muted-foreground mb-2">Sadržaj:</p>
                     <ul className="space-y-2">
@@ -83,14 +91,20 @@ const TrainingPhases = () => {
                       ))}
                     </ul>
                   </div>
-                  <div className="pt-4 border-t border-border/50">
+                  <div className="pt-4 border-t border-border/50 mb-5">
                     <p className="text-sm font-semibold text-muted-foreground mb-1">Ishod:</p>
                     <p className="text-sm font-medium text-foreground">{phase.outcome}</p>
                   </div>
-                </CardContent>
-              </Card>
+                  <Button asChild className="w-full font-bold">
+                    <a href="#kontakt">
+                      Zakaži početak ove faze
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </a>
+                  </Button>
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </div>
     </section>

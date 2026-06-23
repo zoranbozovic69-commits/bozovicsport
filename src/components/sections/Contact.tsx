@@ -64,18 +64,30 @@ const Contact = () => {
       return;
     }
 
+    // Generate DDK Protocol ID (unique per submission)
+    const now = new Date();
+    const datePart = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getDate()).padStart(2, "0")}`;
+    const randPart = Math.random().toString(36).slice(2, 6).toUpperCase();
+    const initials = formData.ime
+      .trim()
+      .split(/\s+/)
+      .map((w) => w[0]?.toUpperCase() || "")
+      .join("")
+      .slice(0, 3) || "DDK";
+    const protocolId = `DDK-${datePart}-${initials}-${randPart}`;
+
     // Encode data for WhatsApp - exact format requested
     const level = formData.nivoStraha[0];
     const message = encodeURIComponent(
-      `Zdravo Zorane, želim DDK dijagnostiku. Ime: ${formData.ime.trim()}, Godište: ${formData.godiste.trim()}, Nivo straha od vode: ${level}/10, Cilj: ${formData.primarniCilj.trim()}.`
+      `Zdravo Zorane, želim DDK dijagnostiku.\nDDK Protokol ID: ${protocolId}\nIme: ${formData.ime.trim()}\nGodište: ${formData.godiste.trim()}\nNivo straha od vode: ${level}/10\nCilj: ${formData.primarniCilj.trim()}.`
     );
 
 
     window.open(`https://wa.me/381641494033?text=${message}`, '_blank');
 
     toast({
-      title: "Uspešno!",
-      description: "Preusmeravamo vas na WhatsApp za brzu komunikaciju.",
+      title: `DDK Protokol ID: ${protocolId}`,
+      description: "Preusmeravamo vas na WhatsApp. Sačuvajte ovaj ID za referencu.",
     });
   };
 

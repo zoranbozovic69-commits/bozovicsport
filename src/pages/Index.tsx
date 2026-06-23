@@ -17,12 +17,12 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Božović Sport | Škola Plivanja Novi Sad - DDK Metodologija</title>
+        <title>Časovi plivanja za decu i odrasle | Naučni pristup | Božović Sport</title>
         <meta 
           name="description" 
-          content="Naučite da plivate bez straha uz DDK metod Zorana Božovića, MSc. Individualna obuka u Novom Sadu (Slana Bara) sa 100% uspešnosti. Zakažite dijagnostiku odmah!" 
+          content="Individualni časovi plivanja i kineziterapije u Novom Sadu. Razvoj motorike uz stručni nadzor master profesora sporta. Sigurnost i napredak kroz sistem 10 faza." 
         />
-        <meta name="keywords" content="Škola plivanja Novi Sad, Strah od vode, Individualni časovi plivanja, Kineziterapija Novi Sad, Sertifikat za čamac, DDK metodologija, vaterpolo Novi Sad" />
+        <meta name="keywords" content="Časovi plivanja Novi Sad, Plivanje za decu, Plivanje za odrasle, Strah od vode, Kineziterapija Novi Sad, DDK metodologija, Sertifikat za čamac, vaterpolo Novi Sad" />
       </Helmet>
       <Navbar />
       <main>
