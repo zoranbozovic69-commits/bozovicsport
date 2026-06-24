@@ -1,33 +1,12 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { HelpCircle, Activity } from "lucide-react";
 import DDKFearScale from "@/components/DDKFearScale";
-
-
-const faqItems = [
-  {
-    question: "Da li je moguće pobediti strah ako imam 40+ godina?",
-    answer: "Apsolutno. Strah nije pitanje godina, već neurotransmitera. DDK metod koristi neuro-pedagoški pristup koji 'resetuje' vaš instinkt preživljavanja."
-  },
-  {
-    question: "Šta ako dobijem napad panike usred bazena?",
-    answer: "To je moj posao. U Fazi 1, ja sam u vodi pored vas. Koristimo tehnike disanja koje momentalno spuštaju nivo stresa. Vi kontrolišete proces."
-  },
-  {
-    question: "Zašto čas traje 30 ili 45 minuta, a ne duže?",
-    answer: "Naučno je dokazano da je fokus kod straha najjači u prvih 40 minuta. Sve preko toga zamara nervni sistem i kontraproduktivno je za učenje."
-  },
-  {
-    question: "Koliko mi je ciklusa od 10 časova potrebno?",
-    answer: "Većina polaznika nakon prvih 10 časova potpuno eliminiše strah i postaje bazično samostalna. Drugi ciklus služi za potpunu sigurnost u dubini."
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FAQ = () => {
+  const { t } = useLanguage();
+  const faqItems: [string, string][] = t("faq.items");
+
   return (
     <section className="py-20 bg-muted/30" id="faq">
       <div className="container mx-auto px-4">
@@ -37,11 +16,9 @@ const FAQ = () => {
               <HelpCircle className="w-8 h-8 text-primary" />
             </div>
             <h2 className="text-3xl md:text-5xl font-black mb-4">
-              DDK <span className="text-primary">Rešenja</span>
+              {t("faq.title1")} <span className="text-primary">{t("faq.title2")}</span>
             </h2>
-            <p className="text-muted-foreground">
-              Odgovori na najčešća pitanja o DDK metodologiji
-            </p>
+            <p className="text-muted-foreground">{t("faq.subtitle")}</p>
           </div>
 
           <div className="mb-12 bg-background rounded-2xl border border-border shadow-card p-6 md:p-8">
@@ -49,27 +26,16 @@ const FAQ = () => {
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                 <Activity className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="text-xl md:text-2xl font-black">
-                Interaktivna DDK skala straha
-              </h3>
+              <h3 className="text-xl md:text-2xl font-black">{t("faq.scaleTitle")}</h3>
             </div>
             <DDKFearScale />
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
-
-            {faqItems.map((item, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`}
-                className="bg-background rounded-xl border border-border shadow-sm px-6"
-              >
-                <AccordionTrigger className="text-left font-semibold hover:text-primary py-5">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5">
-                  {item.answer}
-                </AccordionContent>
+            {faqItems.map(([q, a], index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="bg-background rounded-xl border border-border shadow-sm px-6">
+                <AccordionTrigger className="text-left font-semibold hover:text-primary py-5">{q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-5">{a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

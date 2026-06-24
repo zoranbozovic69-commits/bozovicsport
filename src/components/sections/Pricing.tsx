@@ -2,79 +2,38 @@ import { Clock, FileCheck, Activity } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
-const prices = [
-  { 
-    duration: "30 Minuta", 
-    price: "2.000", 
-    icon: Clock,
-    popular: false 
-  },
-  { 
-    duration: "45 Minuta", 
-    price: "3.000", 
-    icon: Clock,
-    popular: true 
-  },
-  { 
-    duration: "60 Minuta", 
-    price: "4.000", 
-    icon: Clock,
-    popular: false 
-  },
-];
-
-const additionalServices = [
-  {
-    title: "Sertifikat za čamac",
-    description: "Zvanično ovlašćenje PSS",
-    price: "2.000 RSD",
-    icon: FileCheck,
-  },
-  {
-    title: "Kineziterapija",
-    description: "Kifoza, skolioza, bolna stanja",
-    price: "4.000 RSD",
-    icon: Activity,
-  },
-  {
-    title: "Ispitivanje vaterpolista",
-    description: "Provera kretanja i tehnika",
-    price: "4.000 RSD",
-    icon: Activity,
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Pricing = () => {
+  const { t } = useLanguage();
+  const prices = [
+    { duration: t("pricing.d30"), price: "2.000", icon: Clock, popular: false },
+    { duration: t("pricing.d45"), price: "3.000", icon: Clock, popular: true },
+    { duration: t("pricing.d60"), price: "4.000", icon: Clock, popular: false },
+  ];
+  const additionalServices = [
+    { title: t("pricing.boat")[0], description: t("pricing.boat")[1], price: "2.000 RSD", icon: FileCheck },
+    { title: t("pricing.kine")[0], description: t("pricing.kine")[1], price: "4.000 RSD", icon: Activity },
+    { title: t("pricing.polo")[0], description: t("pricing.polo")[1], price: "4.000 RSD", icon: Activity },
+  ];
+
   return (
     <section className="py-20 bg-background" id="cenovnik">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-black mb-4">
-              Cenovnik <span className="text-primary">Investicije</span>
+              {t("pricing.title1")} <span className="text-primary">{t("pricing.title2")}</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Ulaganje u sigurnost i veštinu koja traje ceo život
-            </p>
+            <p className="text-lg text-muted-foreground">{t("pricing.subtitle")}</p>
           </div>
 
-          {/* Main price cards */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {prices.map((item, index) => (
-              <Card 
-                key={index} 
-                className={`relative text-center border-2 transition-all ${
-                  item.popular 
-                    ? 'border-primary shadow-card scale-105 bg-primary/5' 
-                    : 'border-border hover:border-primary/50'
-                }`}
-              >
+              <Card key={index} className={`relative text-center border-2 transition-all ${item.popular ? 'border-primary shadow-card scale-105 bg-primary/5' : 'border-border hover:border-primary/50'}`}>
                 {item.popular && (
-                  <Badge 
-                    className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-navy text-primary-foreground px-4 py-1 text-sm font-bold"
-                  >
-                    NAJPOPULARNIJE
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-navy text-primary-foreground px-4 py-1 text-sm font-bold">
+                    {t("pricing.popular")}
                   </Badge>
                 )}
                 <CardHeader className="pb-2 pt-8">
@@ -88,19 +47,14 @@ const Pricing = () => {
                     <span className="text-5xl font-black text-foreground">{item.price}</span>
                     <span className="text-muted-foreground ml-2">RSD</span>
                   </div>
-                  <Button 
-                    className={`w-full ${item.popular ? 'gradient-navy shadow-button' : ''}`}
-                    variant={item.popular ? 'default' : 'outline'}
-                    asChild
-                  >
-                    <a href="#kontakt">Zakaži čas</a>
+                  <Button className={`w-full ${item.popular ? 'gradient-navy shadow-button' : ''}`} variant={item.popular ? 'default' : 'outline'} asChild>
+                    <a href="#kontakt">{t("pricing.book")}</a>
                   </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          {/* Additional services */}
           <div className="grid md:grid-cols-2 gap-6">
             {additionalServices.map((service, index) => (
               <Card key={index} className="border-0 shadow-card bg-muted/50">
