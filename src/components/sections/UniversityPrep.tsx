@@ -1,31 +1,17 @@
 import { GraduationCap, Target, Gauge, ClipboardList, FileText } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-const prepPoints = [
-  {
-    icon: ClipboardList,
-    title: "Analiza standarda",
-    description: "Detaljna provera zahteva konkretnog fakulteta (FSFV i dr.)"
-  },
-  {
-    icon: Gauge,
-    title: "Tehnička optimizacija",
-    description: "Fokus na ekonomičnost pokreta i brzinu, uz otklanjanje grešaka u stilu"
-  },
-  {
-    icon: Target,
-    title: "Simulacija ispita",
-    description: "Testiranje pod kontrolisanim uslovima radi stabilizacije psihološkog profila kandidata"
-  },
-  {
-    icon: FileText,
-    title: "DDK izveštaj o spremnosti",
-    description: "Analiza trenutnog nivoa i prognoza napretka neophodna za siguran prolazak na prijemnom"
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const UniversityPrep = () => {
+  const { t } = useLanguage();
+  const prepPoints = [
+    { icon: ClipboardList, title: t("university.p1")[0], description: t("university.p1")[1] },
+    { icon: Gauge, title: t("university.p2")[0], description: t("university.p2")[1] },
+    { icon: Target, title: t("university.p3")[0], description: t("university.p3")[1] },
+    { icon: FileText, title: t("university.p4")[0], description: t("university.p4")[1] },
+  ];
+
   return (
     <section className="py-20 bg-muted/30" id="prijemni">
       <div className="container mx-auto px-4">
@@ -33,27 +19,19 @@ const UniversityPrep = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
               <GraduationCap className="w-4 h-4" />
-              POSEBNA USLUGA
+              {t("university.badge")}
             </div>
             <h2 className="text-3xl md:text-5xl font-black mb-4">
-              Priprema za <span className="text-primary">Prijemne Ispite</span>
+              {t("university.title1")} <span className="text-primary">{t("university.title2")}</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
-              Fakulteti i sportske akademije
-            </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Sistematska priprema za buduće profesionalce.
-            </p>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-2">{t("university.sub1")}</p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("university.sub2")}</p>
           </div>
 
           <Card className="border-0 shadow-card overflow-hidden">
             <CardHeader className="gradient-navy p-8 text-center">
-              <CardTitle className="text-2xl md:text-3xl font-black text-primary-foreground">
-                Priprema za prijemne ispite (FSFV i dr.)
-              </CardTitle>
-              <p className="text-primary-foreground/80 mt-2">
-                Ne prepuštajte upis na fakultet slučaju. Naša metodologija osigurava da tehničku normu plivanja ispunite sa maksimalnim brojem bodova, uz korekciju svih biomehaničkih nedostataka koji mogu uticati na vašu ocenu.
-              </p>
+              <CardTitle className="text-2xl md:text-3xl font-black text-primary-foreground">{t("university.cardTitle")}</CardTitle>
+              <p className="text-primary-foreground/80 mt-2">{t("university.cardSubtitle")}</p>
             </CardHeader>
             <CardContent className="p-8">
               <div className="grid sm:grid-cols-2 gap-6 mb-8">
@@ -72,17 +50,11 @@ const UniversityPrep = () => {
 
               <div className="text-center">
                 <p className="text-lg font-bold text-muted-foreground mb-1">
-                  Cena: <span className="text-primary text-2xl">4.000 RSD</span> po konsultaciji
+                  <span className="text-primary text-2xl">4.000 RSD</span> {t("university.priceLine")}
                 </p>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Paketi pripreme po dogovoru
-                </p>
-                <Button
-                  size="lg"
-                  className="gradient-navy shadow-button text-lg px-8"
-                  asChild
-                >
-                  <a href="#kontakt">Zakaži konsultaciju</a>
+                <p className="text-sm text-muted-foreground mb-4">{t("university.packages")}</p>
+                <Button size="lg" className="gradient-navy shadow-button text-lg px-8" asChild>
+                  <a href="#kontakt">{t("university.cta")}</a>
                 </Button>
               </div>
             </CardContent>

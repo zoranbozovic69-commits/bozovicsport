@@ -12,17 +12,17 @@ import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
+  const { t, lang } = useLanguage();
   return (
     <>
       <Helmet>
-        <title>Časovi plivanja za decu i odrasle | Naučni pristup | Božović Sport</title>
-        <meta 
-          name="description" 
-          content="Individualni časovi plivanja i kineziterapije u Novom Sadu. Razvoj motorike uz stručni nadzor master profesora sporta. Sigurnost i napredak kroz sistem 10 faza." 
-        />
-        <meta name="keywords" content="Časovi plivanja Novi Sad, Plivanje za decu, Plivanje za odrasle, Strah od vode, Kineziterapija Novi Sad, DDK metodologija, Sertifikat za čamac, vaterpolo Novi Sad" />
+        <html lang={lang} />
+        <title>{t("seo.title")}</title>
+        <meta name="description" content={t("seo.desc")} />
+        <meta name="keywords" content="Časovi plivanja Novi Sad, Plivanje za decu, Plivanje za odrasle, Strah od vode, Kineziterapija Novi Sad, DDK metodologija, swimming lessons Novi Sad, fear of water, kinesiotherapy" />
       </Helmet>
       <Navbar />
       <main>
