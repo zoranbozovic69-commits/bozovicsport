@@ -8,6 +8,7 @@ import WaterPoloCheck from "@/components/sections/WaterPoloCheck";
 import UniversityPrep from "@/components/sections/UniversityPrep";
 import Pricing from "@/components/sections/Pricing";
 import ExpertProfile from "@/components/sections/ExpertProfile";
+import KnowledgeBase from "@/components/sections/KnowledgeBase";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
@@ -34,6 +35,7 @@ const Index = () => {
         <UniversityPrep />
         <Pricing />
         <ExpertProfile />
+        <KnowledgeBase />
         <FAQ />
         <Contact />
       </main>
