@@ -36,6 +36,10 @@ const DDKAnalysisCard = ({ selectedLevel }: Props) => {
           <p className="font-bold text-sm uppercase tracking-wide text-primary mb-1">{t("ddkAnalysis.expertLabel")}</p>
           <p className="text-foreground/90 leading-relaxed text-sm md:text-base">{data.expert}</p>
         </div>
+        <div className="border-l-4 border-accent bg-accent/5 rounded-r-lg p-4">
+          <p className="font-bold text-xs uppercase tracking-wider text-foreground mb-1">{t("ddkAnalysis.specializationTitle")}</p>
+          <p className="text-foreground/90 leading-relaxed text-sm md:text-base italic">{t("ddkAnalysis.specializationNote")}</p>
+        </div>
       </div>
     </div>
   );
