@@ -143,6 +143,7 @@ const sr: Dict = {
       "Operativni trener vaterpola",
       "Licencirani trener Plivačkog saveza Srbije (0333)",
       "Dozvola Ministarstva prosvete RS za rad sa decom i omladinom",
+      "Ekspertska specijalizacija za rad sa odraslim osobama (starosna grupa 40+) u eliminaciji dubokog neurofiziološkog straha od vode",
     ],
     licenseTitle: "Zvanična dozvola za rad",
     licenseSub: "Licenca broj 0333 - Plivački Savez Srbije",
