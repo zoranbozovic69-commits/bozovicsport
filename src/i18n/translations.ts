@@ -155,7 +155,7 @@ const sr: Dict = {
     subtitle: "Odgovori na najčešća pitanja o DDK metodologiji",
     scaleTitle: "Interaktivna DDK skala straha",
     items: [
-      ["Da li je moguće pobediti strah ako imam 40+ godina?", "Apsolutno. Strah nije pitanje godina, već neurotransmitera. DDK metod koristi neuro-pedagoški pristup koji 'resetuje' vaš instinkt preživljavanja."],
+      ["Da li je moguće pobediti strah ako imam 40+ godina?", "Apsolutno. Zapravo, rad sa odraslim osobama u kategoriji 40+ je jedna od naših glavnih užih specijalnosti. Strah u zrelim godinama nije slabost karaktera, već duboko ukorenjen odbrambeni mehanizam. Kroz DDK metodologiju, mi ne radimo po šablonima za decu, već primenjujemo kineziterapijski pristup i neurofiziološku adaptaciju. Proces je 100% individualan, kontrolisan i vođen naučnim metodom koji garantuje bazičnu samostalnost u dubini u roku od 10 sesija."],
       ["Šta ako dobijem napad panike usred bazena?", "To je moj posao. U Fazi 1, ja sam u vodi pored vas. Koristimo tehnike disanja koje momentalno spuštaju nivo stresa. Vi kontrolišete proces."],
       ["Zašto čas traje 30 ili 45 minuta, a ne duže?", "Naučno je dokazano da je fokus kod straha najjači u prvih 40 minuta. Sve preko toga zamara nervni sistem i kontraproduktivno je za učenje."],
       ["Koliko mi je ciklusa od 10 časova potrebno?", "Većina polaznika nakon prvih 10 časova potpuno eliminiše strah i postaje bazično samostalna. Drugi ciklus služi za potpunu sigurnost u dubini."],
