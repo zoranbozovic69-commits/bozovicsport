@@ -143,6 +143,7 @@ const sr: Dict = {
       "Operativni trener vaterpola",
       "Licencirani trener Plivačkog saveza Srbije (0333)",
       "Dozvola Ministarstva prosvete RS za rad sa decom i omladinom",
+      "Ekspertska specijalizacija za rad sa odraslim osobama (starosna grupa 40+) u eliminaciji dubokog neurofiziološkog straha od vode",
     ],
     licenseTitle: "Zvanična dozvola za rad",
     licenseSub: "Licenca broj 0333 - Plivački Savez Srbije",
@@ -154,7 +155,7 @@ const sr: Dict = {
     subtitle: "Odgovori na najčešća pitanja o DDK metodologiji",
     scaleTitle: "Interaktivna DDK skala straha",
     items: [
-      ["Da li je moguće pobediti strah ako imam 40+ godina?", "Apsolutno. Strah nije pitanje godina, već neurotransmitera. DDK metod koristi neuro-pedagoški pristup koji 'resetuje' vaš instinkt preživljavanja."],
+      ["Da li je moguće pobediti strah ako imam 40+ godina?", "Apsolutno. Zapravo, rad sa odraslim osobama u kategoriji 40+ je jedna od naših glavnih užih specijalnosti. Strah u zrelim godinama nije slabost karaktera, već duboko ukorenjen odbrambeni mehanizam. Kroz DDK metodologiju, mi ne radimo po šablonima za decu, već primenjujemo kineziterapijski pristup i neurofiziološku adaptaciju. Proces je 100% individualan, kontrolisan i vođen naučnim metodom koji garantuje bazičnu samostalnost u dubini u roku od 10 sesija."],
       ["Šta ako dobijem napad panike usred bazena?", "To je moj posao. U Fazi 1, ja sam u vodi pored vas. Koristimo tehnike disanja koje momentalno spuštaju nivo stresa. Vi kontrolišete proces."],
       ["Zašto čas traje 30 ili 45 minuta, a ne duže?", "Naučno je dokazano da je fokus kod straha najjači u prvih 40 minuta. Sve preko toga zamara nervni sistem i kontraproduktivno je za učenje."],
       ["Koliko mi je ciklusa od 10 časova potrebno?", "Većina polaznika nakon prvih 10 časova potpuno eliminiše strah i postaje bazično samostalna. Drugi ciklus služi za potpunu sigurnost u dubini."],
@@ -224,6 +225,8 @@ const sr: Dict = {
     title: "DDK Ekspertska Analiza i Plan Rada za Nivo",
     meaningLabel: "Značenje",
     expertLabel: "Stručni odgovor",
+    specializationTitle: "Napomena o specijalizaciji",
+    specializationNote: "Poseban akcenat i prilagođen DDK protokol primenjuju se za kandidate starije od 40 godina, uz stopostotno poštovanje psiholoških i biomehaničkih barijera odraslih polaznika.",
   },
   seo: {
     title: "Časovi plivanja za decu i odrasle | Naučni pristup | Božović Sport",
@@ -372,6 +375,7 @@ const en: Dict = {
       "Water polo operative coach",
       "Licensed coach of the Swimming Federation of Serbia (0333)",
       "Permit from the Serbian Ministry of Education to work with children and youth",
+      "Expert specialization in working with adults (age group 40+) in eliminating deep neurophysiological fear of water",
     ],
     licenseTitle: "Official work license",
     licenseSub: "License No. 0333 — Swimming Federation of Serbia",
@@ -383,7 +387,7 @@ const en: Dict = {
     subtitle: "Answers to the most common questions about DDK methodology",
     scaleTitle: "Interactive DDK fear scale",
     items: [
-      ["Can I overcome the fear at 40+ years old?", "Absolutely. Fear is not a matter of age but of neurotransmitters. The DDK method uses a neuro-pedagogical approach that 'resets' your survival instinct."],
+      ["Can I overcome the fear at 40+ years old?", "Absolutely. In fact, working with adults in the 40+ category is one of our core specializations. Fear in mature years is not a character weakness, but a deeply rooted defense mechanism. Through DDK methodology, we do not use child templates; instead we apply a kinesiotherapeutic approach and neurophysiological adaptation. The process is 100% individual, controlled, and guided by a scientific method that guarantees basic independence in depth within 10 sessions."],
       ["What if I get a panic attack mid-pool?", "That's my job. In Phase 1, I'm in the water beside you. We use breathing techniques that instantly lower stress. You control the process."],
       ["Why is a lesson 30 or 45 minutes and not longer?", "It is scientifically proven that focus under fear peaks in the first 40 minutes. Anything beyond tires the nervous system and is counter-productive."],
       ["How many 10-lesson cycles do I need?", "Most learners fully eliminate fear and become basically independent after the first 10 lessons. The second cycle builds full safety in deep water."],
@@ -453,6 +457,8 @@ const en: Dict = {
     title: "DDK Expert Analysis & Work Plan for Level",
     meaningLabel: "Meaning",
     expertLabel: "Expert response",
+    specializationTitle: "Specialization note",
+    specializationNote: "Special emphasis and an adapted DDK protocol are applied for candidates over 40, with full respect for the psychological and biomechanical barriers of adult learners.",
   },
   seo: {
     title: "Swimming lessons for kids & adults | Scientific approach | Božović Sport",
