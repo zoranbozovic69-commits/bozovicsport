@@ -16,13 +16,15 @@ const Article = () => {
 
   if (!article) return <Navigate to="/" replace />;
 
-  const url = `${SITE}/clanak/${article.slug}`;
+  const url = `${SITE}${article.path || `/clanak/${article.slug}`}`;
   const back = lang === "en" ? "Back to home" : "Nazad na početnu";
+  const pageTitle = article.metaTitle || `${article.title} | Božović Sport`;
+  const pageHeading = article.heading || article.title;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: article.title,
+    headline: pageHeading,
     description: article.excerpt,
     author: { "@type": "Person", name: article.author || "Zoran Božović" },
     datePublished: article.datePublished,
@@ -39,11 +41,11 @@ const Article = () => {
     <>
       <Helmet>
         <html lang={lang} />
-        <title>{article.title} | Božović Sport</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={article.excerpt} />
         <link rel="canonical" href={url} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={article.title} />
+        <meta property="og:title" content={pageHeading} />
         <meta property="og:description" content={article.excerpt} />
         <meta property="og:url" content={url} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -58,8 +60,8 @@ const Article = () => {
             <ArrowLeft className="w-4 h-4" /> {back}
           </Link>
           <header className="mb-8">
-            <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
-              {article.title}
+            <h1 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3 uppercase leading-tight">
+              {pageHeading}
             </h1>
             <p className="text-sm text-muted-foreground">
               {article.author} · {article.datePublished}

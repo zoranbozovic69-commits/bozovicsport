@@ -32,7 +32,7 @@ const KnowledgeBase = () => {
           {articles.slice(0, 3).map((a) => (
             <Link
               key={a.slug}
-              to={`/clanak/${a.slug}`}
+              to={a.path || `/clanak/${a.slug}`}
               className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/40 transition-all duration-300 flex flex-col"
             >
               <h3 className="text-xl font-heading font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
