@@ -49,7 +49,7 @@ const WaterPoloCheck = () => {
 
               <div className="text-center">
                 <p className="text-lg font-bold text-muted-foreground mb-4">
-                  {t("waterpolo.price")} <span className="text-primary text-2xl">4.000 RSD</span>
+                  {t("waterpolo.price")} <span className="text-primary text-2xl">6.000 RSD</span>
                 </p>
                 <Button size="lg" className="gradient-navy shadow-button text-lg px-8" asChild>
                   <a href="#kontakt">{t("waterpolo.cta")}</a>
