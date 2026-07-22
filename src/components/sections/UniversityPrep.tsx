@@ -50,7 +50,7 @@ const UniversityPrep = () => {
 
               <div className="text-center">
                 <p className="text-lg font-bold text-muted-foreground mb-1">
-                  <span className="text-primary text-2xl">6.000 RSD</span> {t("university.priceLine")}
+                  <span className="text-primary text-2xl">5.000 RSD</span> {t("university.priceLine")}
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">{t("university.packages")}</p>
                 <Button size="lg" className="gradient-navy shadow-button text-lg px-8" asChild>

@@ -8,13 +8,13 @@ const Pricing = () => {
   const { t } = useLanguage();
   const prices = [
     { duration: t("pricing.d30"), price: "3.000", icon: Clock, popular: false },
-    { duration: t("pricing.d45"), price: "4.500", icon: Clock, popular: true },
-    { duration: t("pricing.d60"), price: "6.000", icon: Clock, popular: false },
+    { duration: t("pricing.d45"), price: "4.000", icon: Clock, popular: true },
+    { duration: t("pricing.d60"), price: "5.000", icon: Clock, popular: false },
   ];
   const additionalServices = [
     { title: t("pricing.boat")[0], description: t("pricing.boat")[1], price: "2.000 RSD", icon: FileCheck },
-    { title: t("pricing.kine")[0], description: t("pricing.kine")[1], price: "6.000 RSD", icon: Activity },
-    { title: t("pricing.polo")[0], description: t("pricing.polo")[1], price: "6.000 RSD", icon: Activity },
+    { title: t("pricing.kine")[0], description: t("pricing.kine")[1], price: "5.000 RSD", icon: Activity },
+    { title: t("pricing.polo")[0], description: t("pricing.polo")[1], price: "5.000 RSD", icon: Activity },
   ];
 
   return (
