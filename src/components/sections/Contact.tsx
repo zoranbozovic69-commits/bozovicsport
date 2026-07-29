@@ -58,8 +58,9 @@ const Contact = () => {
 
     const level = formData.nivoStraha[0];
     const message = encodeURIComponent(
-      `${t("contact.waGreeting")}\n${t("contact.waProto")}: ${protocolId}\n${t("contact.waName")}: ${formData.ime.trim()}\n${t("contact.waYear")}: ${formData.godiste.trim()}\n${t("contact.waFear")}: ${level}/10\n${t("contact.waGoal")}: ${formData.primarniCilj.trim()}.`
+      `${t("contact.waGreeting")}\n${t("contact.waProto")}: ${protocolId}\n${t("contact.waName")}: ${formData.ime.trim()}\n${t("contact.waYear")}: ${formData.godiste.trim()}\n${t("contact.waPhase")}: ${phaseLabels[phase]}\n${t("contact.waFear")}: ${level}/10\n${t("contact.waGoal")}: ${formData.primarniCilj.trim()}.`
     );
+
 
     window.open(`https://wa.me/381641494033?text=${message}`, '_blank');
 
