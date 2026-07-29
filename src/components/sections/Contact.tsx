@@ -84,9 +84,24 @@ const Contact = () => {
                 <h3 className="text-xl font-bold mb-6">{t("contact.formTitle")}</h3>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
+                    <Label className="text-sm font-medium">{t("contact.phaseLabel")}</Label>
+                    <Select value={String(phase)} onValueChange={(v) => setPhase(Number(v) as DDKPhase)}>
+                      <SelectTrigger className="mt-1 text-left h-auto py-2.5">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1">{phaseLabels[1]}</SelectItem>
+                        <SelectItem value="2">{phaseLabels[2]}</SelectItem>
+                        <SelectItem value="3">{phaseLabels[3]}</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
                     <Label htmlFor="ime" className="text-sm font-medium">{t("contact.nameLabel")}</Label>
                     <Input id="ime" value={formData.ime} onChange={(e) => setFormData({ ...formData, ime: e.target.value })} placeholder={t("contact.namePh")} className="mt-1" maxLength={100} />
                   </div>
+
 
                   <div>
                     <Label htmlFor="godiste" className="text-sm font-medium">{t("contact.yearLabel")}</Label>
