@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getDDKEntry, type DDKPhase } from "@/data/ddkMatrix";
 
 type Phase = {
   number: "1" | "2" | "3";
@@ -29,13 +30,14 @@ const colorForLevel = (level: number) => {
 };
 
 const PhaseDialog = ({ phase, open, onOpenChange }: { phase: Phase; open: boolean; onOpenChange: (v: boolean) => void; }) => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const { toast } = useToast();
   const [name, setName] = useState("");
   const [value, setValue] = useState<number[]>([5]);
   const level = value[0];
   const description = phase.scale[level - 1];
   const color = useMemo(() => colorForLevel(level), [level]);
+  const analysis = useMemo(() => getDDKEntry(lang, Number(phase.number) as DDKPhase, level), [lang, phase.number, level]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -80,6 +82,17 @@ const PhaseDialog = ({ phase, open, onOpenChange }: { phase: Phase; open: boolea
             </div>
             <div className="mt-4 p-3 rounded-lg border text-sm font-medium text-center" style={{ borderColor: color, color }}>
               {level} — {description}
+            </div>
+
+            <div className="mt-3 rounded-lg border border-border bg-muted/40 p-3 space-y-2 text-sm">
+              <p>
+                <span className="font-bold">{t("ddkAnalysis.meaningLabel")}:</span>{" "}
+                <span className="text-muted-foreground">{analysis.meaning}</span>
+              </p>
+              <p>
+                <span className="font-bold">{t("ddkAnalysis.expertLabel")}:</span>{" "}
+                <span className="text-muted-foreground">{analysis.expert}</span>
+              </p>
             </div>
           </div>
 
