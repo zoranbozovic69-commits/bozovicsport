@@ -86,7 +86,7 @@ const sr: Dict = {
     p3Content: ["Kretanje kroz vodu", "Kraul", "Prsno", "Leđno", "Delfin"],
     p3Outcome: "Majstorstvo svih stilova plivanja",
     p3Question: "Kako ocenjujete ekonomičnost svog plivačkog pokreta?",
-    p3Scale: ["Borim se sa vodom","Otpor je ogroman","Trošim puno energije","Greške u disanju","Propadanje kukova","Brzo umaranje","Bez ritma","Ekonomičan pokret","Osećam zaveslaj","Voda me nosi"],
+    p3Scale: ["Voda me nosi","Osećam zaveslaj","Ekonomičan pokret","Bez ritma","Brzo umaranje","Propadanje kukova","Greške u disanju","Trošim puno energije","Otpor je ogroman","Borim se sa vodom"],
   },
   waterpolo: {
     badge: "POSEBNA USLUGA",
