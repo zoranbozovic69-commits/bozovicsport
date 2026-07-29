@@ -6,19 +6,29 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import DDKAnalysisCard from "@/components/DDKAnalysisCard";
+import type { DDKPhase } from "@/data/ddkMatrix";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
+  const [phase, setPhase] = useState<DDKPhase>(1);
   const [formData, setFormData] = useState({
     ime: "",
     godiste: "",
     nivoStraha: [7],
     primarniCilj: "",
   });
+
+  const phaseLabels: Record<DDKPhase, string> = {
+    1: t("contact.phase1"),
+    2: t("contact.phase2"),
+    3: t("contact.phase3"),
+  };
+
 
   const sliderColor = useMemo(() => {
     const level = formData.nivoStraha[0];
@@ -48,8 +58,9 @@ const Contact = () => {
 
     const level = formData.nivoStraha[0];
     const message = encodeURIComponent(
-      `${t("contact.waGreeting")}\n${t("contact.waProto")}: ${protocolId}\n${t("contact.waName")}: ${formData.ime.trim()}\n${t("contact.waYear")}: ${formData.godiste.trim()}\n${t("contact.waFear")}: ${level}/10\n${t("contact.waGoal")}: ${formData.primarniCilj.trim()}.`
+      `${t("contact.waGreeting")}\n${t("contact.waProto")}: ${protocolId}\n${t("contact.waName")}: ${formData.ime.trim()}\n${t("contact.waYear")}: ${formData.godiste.trim()}\n${t("contact.waPhase")}: ${phaseLabels[phase]}\n${t("contact.waFear")}: ${level}/10\n${t("contact.waGoal")}: ${formData.primarniCilj.trim()}.`
     );
+
 
     window.open(`https://wa.me/381641494033?text=${message}`, '_blank');
 
@@ -73,9 +84,24 @@ const Contact = () => {
                 <h3 className="text-xl font-bold mb-6">{t("contact.formTitle")}</h3>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
+                    <Label className="text-sm font-medium">{t("contact.phaseLabel")}</Label>
+                    <Select value={String(phase)} onValueChange={(v) => setPhase(Number(v) as DDKPhase)}>
+                      <SelectTrigger className="mt-1 text-left h-auto py-2.5">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1">{phaseLabels[1]}</SelectItem>
+                        <SelectItem value="2">{phaseLabels[2]}</SelectItem>
+                        <SelectItem value="3">{phaseLabels[3]}</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
                     <Label htmlFor="ime" className="text-sm font-medium">{t("contact.nameLabel")}</Label>
                     <Input id="ime" value={formData.ime} onChange={(e) => setFormData({ ...formData, ime: e.target.value })} placeholder={t("contact.namePh")} className="mt-1" maxLength={100} />
                   </div>
+
 
                   <div>
                     <Label htmlFor="godiste" className="text-sm font-medium">{t("contact.yearLabel")}</Label>
@@ -97,7 +123,7 @@ const Contact = () => {
                       </div>
                     </div>
                     <div className="mt-4">
-                      <DDKAnalysisCard selectedLevel={formData.nivoStraha[0]} />
+                      <DDKAnalysisCard selectedLevel={formData.nivoStraha[0]} phase={phase} />
                     </div>
                   </div>
 

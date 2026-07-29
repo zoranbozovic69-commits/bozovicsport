@@ -1,11 +1,13 @@
 import { ddkLevels, ddkLevelsEn, colorForLevel } from "@/data/ddkLevels";
+import { getDDKEntry, type DDKPhase } from "@/data/ddkMatrix";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Props {
   selectedLevel: number | null;
+  phase?: DDKPhase;
 }
 
-const DDKAnalysisCard = ({ selectedLevel }: Props) => {
+const DDKAnalysisCard = ({ selectedLevel, phase }: Props) => {
   const { t, lang } = useLanguage();
 
   if (selectedLevel === null) {
@@ -17,7 +19,7 @@ const DDKAnalysisCard = ({ selectedLevel }: Props) => {
   }
 
   const source = lang === "en" ? ddkLevelsEn : ddkLevels;
-  const data = source[selectedLevel - 1];
+  const data = phase ? getDDKEntry(lang, phase, selectedLevel) : source[selectedLevel - 1];
   const color = colorForLevel(selectedLevel);
 
   return (
@@ -27,6 +29,7 @@ const DDKAnalysisCard = ({ selectedLevel }: Props) => {
           {t("ddkAnalysis.title")} {selectedLevel}
         </h4>
       </div>
+
       <div className="p-5 space-y-4">
         <div>
           <p className="font-bold text-sm uppercase tracking-wide text-primary mb-1">{t("ddkAnalysis.meaningLabel")}</p>
