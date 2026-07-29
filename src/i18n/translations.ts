@@ -317,7 +317,7 @@ const en: Dict = {
     p2Content: ["Staying afloat (4+ minutes)", "Working in deep water"],
     p2Outcome: "Full control and safety in deep water",
     p2Question: "How do you rate your safety in deep water without support?",
-    p2Scale: ["Panic","Looking for the edge","Fear","Great effort","Constantly sinking","Tiring quickly","Elevated pulse","Stable","I control the space","Floating effortlessly"],
+    p2Scale: ["Floating effortlessly","I control the space","Stable","Elevated pulse","Tiring quickly","Constantly sinking","Great effort","Fear","Looking for the edge","Panic"],
     p3Title: "PROPULSION & TECHNIQUE",
     p3Sub: "Refinement",
     p3Content: ["Moving through water", "Freestyle", "Breaststroke", "Backstroke", "Butterfly"],
