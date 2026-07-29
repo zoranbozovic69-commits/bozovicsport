@@ -323,7 +323,7 @@ const en: Dict = {
     p3Content: ["Moving through water", "Freestyle", "Breaststroke", "Backstroke", "Butterfly"],
     p3Outcome: "Mastery of all swimming styles",
     p3Question: "How do you rate the efficiency of your swimming stroke?",
-    p3Scale: ["Fighting the water","Huge resistance","Wasting lots of energy","Breathing mistakes","Hips dropping","Quick fatigue","No rhythm","Efficient stroke","I feel each pull","Water carries me"],
+    p3Scale: ["Water carries me","I feel each pull","Efficient stroke","No rhythm","Quick fatigue","Hips dropping","Breathing mistakes","Wasting lots of energy","Huge resistance","Fighting the water"],
   },
   waterpolo: {
     badge: "SPECIAL SERVICE",
