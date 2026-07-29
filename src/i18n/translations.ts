@@ -80,7 +80,7 @@ const sr: Dict = {
     p2Content: ["Održavanje na vodi (4+ minuta)", "Rad u dubini"],
     p2Outcome: "Potpuna kontrola i sigurnost u dubokoj vodi",
     p2Question: "Kako ocenjujete sigurnost u dubokoj vodi bez oslonca?",
-    p2Scale: ["Panika","Tražim ivicu","Strah","Veliki napor","Stalno tonem","Brzo se umaram","Povišen puls","Stabilan","Vladam prostorom","Plutam bez napora"],
+    p2Scale: ["Plutam bez napora","Vladam prostorom","Stabilan","Povišen puls","Brzo se umaram","Stalno tonem","Veliki napor","Strah","Tražim ivicu","Panika"],
     p3Title: "PROPULZIJA I TEHNIKE",
     p3Sub: "Usavršavanje",
     p3Content: ["Kretanje kroz vodu", "Kraul", "Prsno", "Leđno", "Delfin"],
