@@ -6,19 +6,29 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import DDKAnalysisCard from "@/components/DDKAnalysisCard";
+import type { DDKPhase } from "@/data/ddkMatrix";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
+  const [phase, setPhase] = useState<DDKPhase>(1);
   const [formData, setFormData] = useState({
     ime: "",
     godiste: "",
     nivoStraha: [7],
     primarniCilj: "",
   });
+
+  const phaseLabels: Record<DDKPhase, string> = {
+    1: t("contact.phase1"),
+    2: t("contact.phase2"),
+    3: t("contact.phase3"),
+  };
+
 
   const sliderColor = useMemo(() => {
     const level = formData.nivoStraha[0];
