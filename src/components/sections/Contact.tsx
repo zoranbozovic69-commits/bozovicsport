@@ -123,7 +123,7 @@ const Contact = () => {
                       </div>
                     </div>
                     <div className="mt-4">
-                      <DDKAnalysisCard selectedLevel={formData.nivoStraha[0]} />
+                      <DDKAnalysisCard selectedLevel={formData.nivoStraha[0]} phase={phase} />
                     </div>
                   </div>
 
