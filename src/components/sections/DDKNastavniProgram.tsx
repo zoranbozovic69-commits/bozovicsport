@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const DDKAlumni = () => {
+const DDKNastavniProgram = () => {
   const { t, lang } = useLanguage();
   const message = encodeURIComponent(t("alumni.waMessage"));
 
@@ -15,7 +15,7 @@ const DDKAlumni = () => {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-muted/30" id="faza-4">
+    <section className="py-16 md:py-20 bg-muted/30" id="ddk-faza-4-kondicioniranje">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
@@ -102,4 +102,4 @@ const DDKAlumni = () => {
   );
 };
 
-export default DDKAlumni;
+export default DDKNastavniProgram;

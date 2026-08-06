@@ -4,7 +4,7 @@ import Hero from "@/components/sections/Hero";
 import AuthorityBar from "@/components/sections/AuthorityBar";
 import DDKMethodology from "@/components/sections/DDKMethodology";
 import TrainingPhases from "@/components/sections/TrainingPhases";
-import DDKAlumni from "@/components/sections/DDKAlumni";
+import DDKNastavniProgram from "@/components/sections/DDKNastavniProgram";
 import WaterPoloCheck from "@/components/sections/WaterPoloCheck";
 import UniversityPrep from "@/components/sections/UniversityPrep";
 import Pricing from "@/components/sections/Pricing";
@@ -32,7 +32,7 @@ const Index = () => {
         <AuthorityBar />
         <DDKMethodology />
         <TrainingPhases />
-        <DDKAlumni />
+        <DDKNastavniProgram />
         <WaterPoloCheck />
         <UniversityPrep />
         <Pricing />
