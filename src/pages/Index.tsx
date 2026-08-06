@@ -32,6 +32,7 @@ const Index = () => {
         <AuthorityBar />
         <DDKMethodology />
         <TrainingPhases />
+        <DDKAlumni />
         <WaterPoloCheck />
         <UniversityPrep />
         <Pricing />
