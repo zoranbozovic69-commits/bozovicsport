@@ -14,6 +14,7 @@ const Navbar = () => {
     { href: "#faze", label: t("nav.faze") },
     { href: "#cenovnik", label: t("nav.cenovnik") },
     { href: "#ekspert", label: t("nav.ekspert") },
+    { href: "/vodic-za-roditelje", label: t("nav.vodic") },
     { href: "#faq", label: t("nav.faq") },
     { href: "#kontakt", label: t("nav.kontakt") },
   ];
