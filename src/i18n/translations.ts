@@ -8,6 +8,7 @@ const sr: Dict = {
     faze: "Faze",
     cenovnik: "Cenovnik",
     ekspert: "O instruktoru",
+    vodic: "Vodič za roditelje",
     faq: "FAQ",
     kontakt: "Kontakt",
     pozovi: "Pozovi",

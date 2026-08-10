@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Menu, X, Phone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/logo-bozovic-sport.jpg";
@@ -6,6 +7,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const { t, toggle, lang } = useLanguage();
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const resolve = (href: string) => (href.startsWith("#") && !isHome ? `/${href}` : href);
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -45,7 +49,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={resolve(link.href)}
                 className={`text-sm font-medium transition-colors hover:text-accent ${
                   scrolled ? "text-muted-foreground" : "text-primary-foreground/80"
                 }`}
@@ -101,7 +105,7 @@ const Navbar = () => {
               {navLinks.map((link) => (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={resolve(link.href)}
                   onClick={() => setIsOpen(false)}
                   className="text-foreground font-medium py-2 hover:text-primary transition-colors"
                 >
