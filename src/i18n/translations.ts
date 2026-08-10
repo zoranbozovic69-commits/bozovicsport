@@ -266,6 +266,7 @@ const en: Dict = {
     faze: "Phases",
     cenovnik: "Pricing",
     ekspert: "About",
+    vodic: "Parents’ guide",
     faq: "FAQ",
     kontakt: "Contact",
     pozovi: "Call",
